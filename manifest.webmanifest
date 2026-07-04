@@ -1,0 +1,19 @@
+{
+  "name": "Tokyo Table Flow",
+  "short_name": "Table Flow",
+  "description": "東京駅周辺・丸の内・八重洲の飲食店の混雑状況を確認できます。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f8f4",
+  "theme_color": "#188a5b",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

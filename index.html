@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#188a5b" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Table Flow" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta
+      name="description"
+      content="東京駅周辺・丸の内・八重洲の飲食店の混雑状況をスマホで見られるアプリです。"
+    />
+    <title>Tokyo Table Flow</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="top-panel">
+        <div class="status-bar">
+          <span id="clock">--:--</span>
+          <span>東京駅周辺</span>
+        </div>
+
+        <header class="app-header">
+          <div>
+            <p class="eyebrow">Marunouchi / Yaesu</p>
+            <h1>Tokyo Table Flow</h1>
+          </div>
+          <button class="icon-button" id="refreshButton" type="button" aria-label="混雑状況を更新">
+            <span aria-hidden="true">↻</span>
+          </button>
+        </header>
+
+        <div class="summary-grid" aria-label="混雑サマリー">
+          <article>
+            <span>すぐ入れそう</span>
+            <strong id="openCount">0店</strong>
+          </article>
+          <article>
+            <span>平均待ち時間</span>
+            <strong id="avgWait">0分</strong>
+          </article>
+          <article>
+            <span>更新</span>
+            <strong id="updatedAt">--:--</strong>
+          </article>
+        </div>
+
+        <div class="station-map" aria-label="東京駅周辺の簡易マップ">
+          <div class="map-rail">JR 東京駅</div>
+          <button class="map-pin marunouchi active" type="button" data-area="丸の内" aria-label="丸の内で絞り込み">
+            <span>丸</span>
+          </button>
+          <button class="map-pin yaesu active" type="button" data-area="八重洲" aria-label="八重洲で絞り込み">
+            <span>八</span>
+          </button>
+          <button class="map-pin station active" type="button" data-area="駅ナカ" aria-label="駅ナカで絞り込み">
+            <span>駅</span>
+          </button>
+          <span class="map-label west">丸の内</span>
+          <span class="map-label east">八重洲</span>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="検索条件">
+        <div class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="店名・料理・目的で検索" autocomplete="off" />
+        </div>
+
+        <div class="segmented" role="tablist" aria-label="エリア">
+          <button class="active" type="button" data-filter="area" data-value="all">全て</button>
+          <button type="button" data-filter="area" data-value="丸の内">丸の内</button>
+          <button type="button" data-filter="area" data-value="八重洲">八重洲</button>
+          <button type="button" data-filter="area" data-value="駅ナカ">駅ナカ</button>
+        </div>
+
+        <div class="chips" aria-label="ジャンル">
+          <button class="active" type="button" data-filter="genre" data-value="all">全部</button>
+          <button type="button" data-filter="genre" data-value="和食">和食</button>
+          <button type="button" data-filter="genre" data-value="カフェ">カフェ</button>
+          <button type="button" data-filter="genre" data-value="洋食">洋食</button>
+          <button type="button" data-filter="genre" data-value="中華">中華</button>
+        </div>
+
+        <label class="toggle-row">
+          <span>空席がある店だけ</span>
+          <input id="availableOnly" type="checkbox" />
+        </label>
+      </section>
+
+      <section class="content">
+        <div class="section-heading">
+          <h2>いまの入りやすさ</h2>
+          <span id="resultCount">0件</span>
+        </div>
+        <div id="restaurantList" class="restaurant-list"></div>
+      </section>
+
+      <nav class="bottom-nav" aria-label="アプリメニュー">
+        <button class="active" type="button"><span aria-hidden="true">⌂</span>混雑</button>
+        <button type="button"><span aria-hidden="true">◇</span>地図</button>
+        <button type="button"><span aria-hidden="true">☆</span>保存</button>
+      </nav>
+    </main>
+
+    <template id="restaurantTemplate">
+      <article class="restaurant-card">
+        <div class="card-main">
+          <div class="restaurant-visual" aria-hidden="true"></div>
+          <div class="restaurant-info">
+            <div class="card-title-row">
+              <h3></h3>
+              <span class="status-pill"></span>
+            </div>
+            <p class="meta"></p>
+            <div class="signal">
+              <div class="signal-bar"><span></span></div>
+              <strong></strong>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="walk"></span>
+          <span class="seat"></span>
+          <button type="button">詳細</button>
+        </div>
+        <div class="forecast" aria-label="この先の混雑予測"></div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
