@@ -15,7 +15,7 @@
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="icon.svg" />
-    <link rel="stylesheet" href="styles.css?v=3" />
+    <link rel="stylesheet" href="styles.css?v=4" />
   </head>
   <body>
     <main class="app-shell">
@@ -137,6 +137,25 @@
       </article>
     </template>
 
-    <script src="app.js?v=3"></script>
+    <div class="detail-modal" id="detailModal" aria-hidden="true">
+      <div class="detail-backdrop" data-close-detail></div>
+      <section class="detail-sheet" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+        <button class="detail-close" type="button" aria-label="詳細を閉じる" data-close-detail>×</button>
+        <span class="detail-area" id="detailArea"></span>
+        <h2 id="detailTitle"></h2>
+        <p id="detailDescription"></p>
+        <div class="detail-stats">
+          <span id="detailWalk"></span>
+          <span id="detailSeat"></span>
+          <span id="detailCrowd"></span>
+        </div>
+        <div class="detail-actions">
+          <a id="detailWebsite" href="#" target="_blank" rel="noopener">お店のURL</a>
+          <a id="detailMap" href="#" target="_blank" rel="noopener">地図で見る</a>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js?v=4"></script>
   </body>
 </html>

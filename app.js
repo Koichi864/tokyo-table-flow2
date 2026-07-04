@@ -920,6 +920,138 @@ const additionalRestaurants = [
 
 restaurants.push(...additionalRestaurants);
 
+const ricoBoostRestaurants = [
+  ["ザ・メープルマニア グランスタ東京", "駅ナカ", "スイーツ", "メープル菓子・東京土産", "メープルマニア お土産"],
+  ["COCORIS グランスタ東京", "駅ナカ", "スイーツ", "木の実スイーツ・手土産", "ココリス 木の実 お土産"],
+  ["薫るバター Sabrina グランスタ東京", "駅ナカ", "スイーツ", "バター菓子・手土産", "サブリナ バター"],
+  ["あまみカオリ研究所 グランスタ東京", "駅ナカ", "スイーツ", "香りスイーツ・手土産", "あまみ カオリ"],
+  ["nuevo by BUNMEIDO グランスタ東京", "駅ナカ", "スイーツ", "カステラ・洋菓子", "文明堂 カステラ"],
+  ["喫茶店に恋して。グランスタ東京", "駅ナカ", "スイーツ", "東京土産・焼き菓子", "喫茶店に恋して"],
+  ["じゃがボルダ グランスタ東京", "駅ナカ", "スイーツ", "ポテト菓子・手土産", "じゃがボルダ"],
+  ["nuevo by BUNMEIDO HANAGATAYA東京", "駅ナカ", "スイーツ", "カステラ・手土産", "文明堂 カステラ"],
+  ["東京ラスク グランスタ東京", "駅ナカ", "スイーツ", "ラスク・手土産", "ラスク お土産"],
+  ["鳴門金時本舗 栗尾商店 グランスタ東京", "駅ナカ", "スイーツ", "芋菓子・和スイーツ", "栗尾商店 芋"],
+  ["MIYUKA グランスタ東京", "駅ナカ", "スイーツ", "和洋菓子・手土産", "ミユカ お土産"],
+  ["富士見堂 グランスタ東京", "駅ナカ", "スイーツ", "せんべい・和菓子", "富士見堂 せんべい"],
+  ["菓匠三全 グランスタ東京", "駅ナカ", "スイーツ", "萩の月・菓子", "菓匠三全 萩の月"],
+  ["桂新堂 グランスタ東京", "駅ナカ", "スイーツ", "えびせんべい", "桂新堂 えびせん"],
+  ["麻布かりんと グランスタ東京", "駅ナカ", "スイーツ", "かりんとう・和菓子", "麻布かりんと"],
+  ["鎌倉五郎本店 グランスタ東京", "駅ナカ", "スイーツ", "和菓子・手土産", "鎌倉五郎"],
+  ["銀座甘楽 グランスタ東京", "駅ナカ", "スイーツ", "豆大福・和菓子", "甘楽 豆大福"],
+  ["舟和 グランスタ東京", "駅ナカ", "スイーツ", "芋ようかん・和菓子", "舟和 芋ようかん"],
+  ["宗家 源吉兆庵 グランスタ東京", "駅ナカ", "スイーツ", "季節の和菓子", "源吉兆庵 和菓子"],
+  ["日本橋錦豊琳 グランスタ東京", "駅ナカ", "スイーツ", "かりんとう・手土産", "錦豊琳 かりんとう"],
+  ["東京會舘 グランスタ東京", "駅ナカ", "スイーツ", "洋菓子・クッキー", "東京會舘"],
+  ["ブールミッシュ グランスタ東京", "駅ナカ", "スイーツ", "洋菓子・ケーキ", "ブールミッシュ"],
+  ["メリーチョコレート グランスタ東京", "駅ナカ", "スイーツ", "チョコレート", "メリー チョコ"],
+  ["Mary's café グランスタ東京", "駅ナカ", "カフェ", "チョコレートカフェ", "メリー カフェ"],
+  ["資生堂パーラー グランスタ東京", "駅ナカ", "スイーツ", "洋菓子・チーズケーキ", "資生堂パーラー"],
+  ["ユーハイム グランスタ東京", "駅ナカ", "スイーツ", "バウムクーヘン", "ユーハイム バーム"],
+  ["ブリュレメリゼ グランスタ東京", "駅ナカ", "スイーツ", "ブリュレスイーツ", "ブリュレメリゼ"],
+  ["Fairycake Fair グランスタ東京", "駅ナカ", "スイーツ", "カップケーキ・焼き菓子", "フェアリーケーキ"],
+  ["Now on Cheese♪ グランスタ東京", "駅ナカ", "スイーツ", "チーズスイーツ", "ナウオンチーズ"],
+  ["COFFEE STYLE UCC グランスタ東京", "駅ナカ", "カフェ", "コーヒー豆・カフェ", "ucc コーヒー"],
+  ["Made in ピエール・エルメ 丸の内", "丸の内", "スイーツ", "マカロン・手土産", "ピエールエルメ"],
+  ["ラ ブティック ドゥ ジョエル・ロブション 丸の内", "丸の内", "スイーツ", "パン・焼き菓子", "ロブション パン"],
+  ["カフェ1894 三菱一号館美術館", "丸の内", "カフェ", "クラシックカフェ", "cafe1894"],
+  ["THE FRONT ROOM 丸の内", "丸の内", "カフェ", "カフェ・ブランチ", "フロントルーム"],
+  ["THE UPPER 丸の内", "丸の内", "洋食", "ブラッスリー・バー", "アッパー"],
+  ["GARB Tokyo 丸の内", "丸の内", "洋食", "イタリアン・カフェ", "ガーブ"],
+  ["ANTHEMBLE by My Humble House 丸の内", "丸の内", "洋食", "アジアン・ワイン", "アンセンブル"],
+  ["BISTRO DOUBLE 丸の内", "丸の内", "洋食", "ビストロ・ワイン", "ビストロダブル"],
+  ["La Pesquera MARISQUERIA 丸の内", "丸の内", "洋食", "スペイン・シーフード", "ラペスケーラ"],
+  ["Baru＆Bistro musiQ mood board", "丸の内", "洋食", "ビストロ・バル", "ムードボード"],
+  ["P.C.M. Pub Cardinal Marunouchi", "丸の内", "居酒屋", "パブ・ビール", "pub cardinal"],
+  ["PAGLIACCIO 丸の内", "丸の内", "洋食", "イタリアン・ピッツァ", "パリアッチョ"],
+  ["TRATTORIA CREATTA 丸の内", "丸の内", "洋食", "イタリアン・会食", "クレアッタ"],
+  ["四川豆花飯荘 東京店", "丸の内", "中華", "四川料理・中国茶", "四川 豆花"],
+  ["人人人 丸の内店", "丸の内", "中華", "中華・点心", "レンレンレン"],
+  ["CHINESE 青菜 丸の内", "丸の内", "中華", "中華・野菜料理", "青菜 中華"],
+  ["小岩井農場TOKYO 丸ビル店", "丸の内", "洋食", "洋食・乳製品", "小岩井"],
+  ["モナリザ 丸の内店", "丸の内", "洋食", "フレンチ・記念日", "モナリザ フレンチ"],
+  ["Sens & Saveurs 丸ビル", "丸の内", "洋食", "フレンチ・眺望", "サンスエサヴール"],
+  ["暗闇坂 宮下 丸ビル", "丸の内", "和食", "和食・会席", "宮下 和食"],
+  ["醍醐味 丸ビル", "丸の内", "和食", "和食・会食", "醍醐味"],
+  ["日本料理 大志満 椿壽 丸の内店", "丸の内", "和食", "加賀料理・会席", "大志満"],
+  ["京料理 熊魚菴たん熊北店 東京ドームホテル店", "丸の内", "和食", "京料理", "たん熊"],
+  ["個室会席 北大路 八重洲茶寮", "八重洲", "和食", "会席・個室", "北大路"],
+  ["日本橋 天ぷらめし 金子半之助 日本橋店", "八重洲", "和食", "天ぷらめし", "金子半之助 天ぷら"],
+  ["日本橋 天丼 金子半之助 本店", "八重洲", "和食", "天丼", "金子半之助 天丼"],
+  ["日本橋 お多幸本店", "八重洲", "居酒屋", "おでん・居酒屋", "お多幸 おでん"],
+  ["日本橋 ゆかり", "八重洲", "和食", "日本料理・老舗", "ゆかり 和食"],
+  ["たいめいけん 日本橋本店", "八重洲", "洋食", "オムライス・洋食", "たいめいけん"],
+  ["紅花別館", "八重洲", "洋食", "カレー・洋食", "紅花 ココットカレー"],
+  ["日本橋 墨之栄", "八重洲", "居酒屋", "炉端・海鮮", "墨之栄"],
+  ["日本橋ビアホール", "八重洲", "居酒屋", "ビール・洋食", "ビアホール"],
+  ["三重テラス レストラン", "八重洲", "和食", "三重料理・物産", "三重テラス"],
+  ["榮太樓總本鋪 日本橋本店", "八重洲", "スイーツ", "和菓子・飴", "榮太樓 えいたろう"],
+  ["うさぎや 日本橋本店", "八重洲", "スイーツ", "どら焼き・和菓子", "うさぎや どら焼き"],
+  ["千疋屋総本店 日本橋本店", "八重洲", "カフェ", "フルーツパーラー", "千疋屋 フルーツ"],
+  ["文明堂 日本橋本店", "八重洲", "スイーツ", "カステラ・和菓子", "文明堂"],
+  ["日本橋 長門", "八重洲", "スイーツ", "久寿もち・和菓子", "長門 和菓子"],
+  ["日本橋屋長兵衛 日本橋本店", "八重洲", "スイーツ", "和菓子・手土産", "日本橋屋"],
+  ["山本山 ふじヱ茶房", "八重洲", "カフェ", "日本茶・甘味", "山本山 お茶"],
+  ["コレド室町 船橋屋", "八重洲", "スイーツ", "くず餅・甘味", "船橋屋 くず餅"],
+  ["コレド室町 鶴屋吉信", "八重洲", "スイーツ", "京菓子・甘味", "鶴屋吉信"],
+  ["コレド室町 箔座日本橋", "八重洲", "スイーツ", "金箔スイーツ", "箔座"],
+  ["コレド室町 日本橋だし場 はなれ", "八重洲", "和食", "だし料理", "にんべん"],
+  ["コレド室町 石川亭", "八重洲", "洋食", "ビストロ", "石川亭"],
+  ["コレド室町 GRIP TAVERN", "八重洲", "洋食", "イタリアン・野菜", "グリップタバーン"],
+  ["コレド室町 牡蠣場北海道厚岸", "八重洲", "居酒屋", "牡蠣・海鮮", "厚岸 牡蠣"],
+  ["コレド室町 重慶飯店", "八重洲", "中華", "四川料理", "重慶飯店"],
+  ["コレド室町 ブールアンジュ", "八重洲", "カフェ", "ベーカリーカフェ", "ブールアンジュ"],
+  ["コレド室町 THE ALLEY", "八重洲", "カフェ", "ティースタンド", "ジアレイ タピオカ"],
+  ["Bubby's ヤエチカ", "八重洲", "洋食", "アメリカン・パイ", "バビーズ パイ"],
+  ["カフェ・ド・クリエ 八重洲地下街店", "八重洲", "カフェ", "カフェ・軽食", "クリエ コーヒー"],
+  ["サンマルクカフェ 八重洲地下街店", "八重洲", "カフェ", "チョコクロ・カフェ", "サンマルク チョコクロ"],
+  ["銀座コージーコーナー 八重洲地下街店", "八重洲", "スイーツ", "ケーキ・シュークリーム", "コージーコーナー"],
+  ["ゴディバ 八重洲地下街店", "八重洲", "スイーツ", "チョコレート", "godiva ゴディバ"],
+  ["リンツ ショコラ ブティック 八重洲地下街店", "八重洲", "スイーツ", "チョコレート", "lindt リンツ"],
+  ["モロゾフ 八重洲地下街店", "八重洲", "スイーツ", "プリン・チョコレート", "モロゾフ"],
+  ["銀座あけぼの 八重洲地下街店", "八重洲", "スイーツ", "和菓子・せんべい", "あけぼの"],
+  ["東京凮月堂 八重洲地下街店", "八重洲", "スイーツ", "ゴーフル・洋菓子", "風月堂 ゴーフル"],
+  ["ねんりん家 八重洲地下街店", "八重洲", "スイーツ", "バームクーヘン", "ねんりんや"],
+  ["ラ・メゾン アンソレイユターブル パティスリー 八重洲", "八重洲", "スイーツ", "タルト・ケーキ", "ラメゾン タルト"],
+  ["東京ミルクチーズ工場 八重洲地下街店", "八重洲", "スイーツ", "チーズクッキー", "ミルクチーズ"],
+  ["Butter Butler 東京ギフトパレット", "八重洲", "スイーツ", "バター菓子", "バターバトラー"],
+  ["岡田謹製 あんバタ屋 東京ギフトパレット", "八重洲", "スイーツ", "あんバター菓子", "あんバタ屋"],
+  ["PISTA & TOKYO 東京ギフトパレット", "八重洲", "スイーツ", "ピスタチオスイーツ", "ピスタアンドトーキョー"],
+  ["SOLES GAUFRETTE 東京ギフトパレット", "八重洲", "スイーツ", "ゴーフレット", "ソールズゴーフレット"],
+  ["東京ばな奈s 東京ギフトパレット", "八重洲", "スイーツ", "東京土産", "東京ばな奈"],
+  ["クラブハリエ B-studio Tokyo East", "八重洲", "スイーツ", "バームクーヘン", "クラブハリエ"],
+  ["PIERRE MARCOLINI 東京ギフトパレット", "八重洲", "スイーツ", "チョコレート", "ピエールマルコリーニ"],
+  ["BAKERS gonna BAKE 東京ギフトパレット", "八重洲", "スイーツ", "スコーン・焼き菓子", "ベイカーズ"],
+  ["JUCHHEIM DIE MEISTER 東京ギフトパレット", "八重洲", "スイーツ", "バームクーヘン", "ユーハイム"],
+  ["PRESS BUTTER SAND 東京駅店", "駅ナカ", "スイーツ", "バターサンド", "プレスバターサンド"],
+  ["東京カンパネラ 東京駅店", "駅ナカ", "スイーツ", "ラングドシャ・東京土産", "カンパネラ"],
+  ["東京たまご ごまたまご 東京駅店", "駅ナカ", "スイーツ", "東京土産・和菓子", "ごまたまご"],
+  ["銀座たまや 東京駅店", "駅ナカ", "スイーツ", "東京土産", "銀座たまや"],
+  ["和楽紅屋 東京駅店", "駅ナカ", "スイーツ", "和ラスク・手土産", "和楽紅屋"],
+].map(([name, area, genre, purpose, aliases], index) => ({
+  name,
+  area,
+  genre,
+  purpose,
+  aliases,
+  walk: area === "駅ナカ" ? 3 + (index % 3) : area === "丸の内" ? 5 + (index % 5) : 5 + (index % 7),
+  seats: genre === "スイーツ" ? 10 + (index % 4) : 6 + (index % 5),
+  baseCrowd: 44 + ((index * 7) % 34),
+  color:
+    genre === "スイーツ"
+      ? ["#d49ab4", "#d2a96d", "#c8a873", "#d7bd5a"][index % 4]
+      : genre === "カフェ"
+        ? "#8cb6b0"
+        : genre === "和食"
+          ? "#91aa7a"
+          : genre === "中華"
+            ? "#d88417"
+            : genre === "居酒屋"
+              ? "#8a7564"
+              : "#9fb5c8",
+}));
+
+restaurants.push(...ricoBoostRestaurants);
+
 const state = {
   area: "all",
   genre: "all",
@@ -938,6 +1070,15 @@ const elements = {
   searchInput: document.querySelector("#searchInput"),
   availableOnly: document.querySelector("#availableOnly"),
   refreshButton: document.querySelector("#refreshButton"),
+  detailModal: document.querySelector("#detailModal"),
+  detailArea: document.querySelector("#detailArea"),
+  detailTitle: document.querySelector("#detailTitle"),
+  detailDescription: document.querySelector("#detailDescription"),
+  detailWalk: document.querySelector("#detailWalk"),
+  detailSeat: document.querySelector("#detailSeat"),
+  detailCrowd: document.querySelector("#detailCrowd"),
+  detailWebsite: document.querySelector("#detailWebsite"),
+  detailMap: document.querySelector("#detailMap"),
 };
 
 function getCurrentCrowd(restaurant, offset = 0) {
@@ -1002,6 +1143,40 @@ function matchesRestaurant(restaurant) {
   );
 }
 
+function buildWebSearchUrl(restaurant) {
+  const query = `${restaurant.name} ${restaurant.area} 東京駅 公式`;
+  return `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+}
+
+function buildMapUrl(restaurant) {
+  const query = `${restaurant.name} ${restaurant.area} 東京駅`;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
+function openDetail(restaurant) {
+  const crowd = restaurant.crowd ?? getCurrentCrowd(restaurant);
+  const wait = restaurant.wait ?? getWaitMinutes(restaurant, crowd);
+  const status = getStatus(crowd);
+
+  elements.detailArea.textContent = `${restaurant.area}・${restaurant.genre}`;
+  elements.detailTitle.textContent = restaurant.name;
+  elements.detailDescription.textContent =
+    `${restaurant.purpose}のお店です。東京駅から徒歩${restaurant.walk}分目安。` +
+    `いまの混雑目安は${crowd}%で「${status.label}」です。`;
+  elements.detailWalk.textContent = `徒歩${restaurant.walk}分`;
+  elements.detailSeat.textContent = wait === 0 ? `空席 ${restaurant.seats}席目安` : `待ち ${wait}分`;
+  elements.detailCrowd.textContent = `混雑 ${crowd}%`;
+  elements.detailWebsite.href = restaurant.url || buildWebSearchUrl(restaurant);
+  elements.detailMap.href = restaurant.mapUrl || buildMapUrl(restaurant);
+  elements.detailModal.classList.add("open");
+  elements.detailModal.setAttribute("aria-hidden", "false");
+}
+
+function closeDetail() {
+  elements.detailModal.classList.remove("open");
+  elements.detailModal.setAttribute("aria-hidden", "true");
+}
+
 function renderForecast(restaurant, container) {
   container.innerHTML = "";
 
@@ -1063,6 +1238,7 @@ function render() {
     node.querySelector(".walk").textContent = `東京駅から徒歩${restaurant.walk}分`;
     node.querySelector(".seat").textContent =
       restaurant.wait === 0 ? `空席目安 ${restaurant.seats}席` : `待ち ${restaurant.wait}分`;
+    node.querySelector(".card-footer button").addEventListener("click", () => openDetail(restaurant));
     renderForecast(restaurant, node.querySelector(".forecast"));
     elements.list.append(node);
   });
@@ -1135,6 +1311,16 @@ elements.refreshButton.addEventListener("click", () => {
     { duration: 420, easing: "ease-out" },
   );
   render();
+});
+
+document.querySelectorAll("[data-close-detail]").forEach((button) => {
+  button.addEventListener("click", closeDetail);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeDetail();
+  }
 });
 
 if ("serviceWorker" in navigator && location.protocol !== "file:") {
