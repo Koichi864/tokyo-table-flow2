@@ -1331,6 +1331,106 @@ const yaesuFinalRestaurants = [
 
 restaurants.push(...yaesuFinalRestaurants);
 
+const kasumigasekiRestaurants = [
+  ["すし屋銀蔵 霞が関店", "霞が関", "寿司", "寿司・海鮮ランチ", "銀蔵 寿司 霞が関ビル 霞ダイニング"],
+  ["丸亀製麺 霞が関ビルディング店", "霞が関", "和食", "うどん・短時間", "丸亀 うどん 霞が関"],
+  ["鍛冶屋文蔵 霞が関店", "霞が関", "居酒屋", "焼鳥・定食・居酒屋", "文蔵 焼き鳥 居酒屋 霞が関"],
+  ["萬庵 霞が関店", "霞が関", "和食", "そば・和食", "萬庵 そば 蕎麦"],
+  ["琉球創喜 霞が関店", "霞が関", "居酒屋", "沖縄料理・居酒屋", "琉球創喜 沖縄 霞ダイニング"],
+  ["もり山食堂 霞が関店", "霞が関", "和食", "定食・唐揚げ", "もり山 食堂 定食"],
+  ["朝どれ鮮魚 魚の屋 霞が関店", "霞が関", "居酒屋", "鮮魚・海鮮", "魚の屋 海鮮 魚 霞が関"],
+  ["和食日和 おさけと 霞ヶ関", "霞が関", "和食", "日本酒・和食会食", "おさけと 日本酒 和食"],
+  ["鮮魚 銀シャリ ほっこり 霞が関店", "霞が関", "和食", "魚定食・和食", "ほっこり 銀シャリ 鮮魚"],
+  ["焼酎・黒豚 芋蔵 霞が関店", "霞が関", "居酒屋", "黒豚・焼酎", "芋蔵 黒豚 焼酎"],
+  ["鯖しゃぶと炙り焼き 奥いずも", "霞が関", "和食", "鯖しゃぶ・郷土料理", "奥いずも 鯖 さば"],
+  ["初つぼみ 霞が関店", "霞が関", "和食", "和食・個室会食", "初つぼみ 個室 和食"],
+  ["焼きスパゲッチ ミスターハングリー", "霞が関", "洋食", "焼きスパゲティ", "ミスターハングリー パスタ スパゲッチ"],
+  ["上等カレー 霞が関ビル店", "霞が関", "洋食", "カレー・短時間", "上等カレー カレー"],
+  ["BARBARA market place 325 KASUMIGASEKI", "霞が関", "洋食", "イタリアン・バル", "バルバラ イタリアン バル"],
+  ["L'ARGENT 霞が関", "霞が関", "洋食", "フレンチ・特別ランチ", "ラルジャン フレンチ"],
+  ["De'lirium Cafe Tokyo", "霞が関", "カフェ", "ベルギービール・カフェ", "デリリウム カフェ ビール"],
+  ["RUTH'S CHRIS STEAK HOUSE 霞が関", "霞が関", "洋食", "ステーキ・会食", "ルースクリス ステーキ"],
+  ["上海レストラン&バー 檸檬", "霞が関", "中華", "中華・ランチ", "檸檬 レモン 上海 中華"],
+  ["博多一星 霞が関店", "霞が関", "ラーメン", "博多ラーメン", "博多一星 とんこつ ラーメン"],
+  ["中国料理 頤和園 霞が関店", "霞が関", "中華", "中華・会食", "頤和園 いわえん 中華"],
+  ["Sukhumvit Soi 39 霞が関店", "霞が関", "洋食", "タイ料理", "スクンビット タイ エスニック"],
+  ["韓美膳 霞が関店", "霞が関", "中華", "韓国料理・ビビンバ", "ハンビジェ 韓国"],
+  ["KollaBo 霞が関店", "霞が関", "中華", "焼肉・韓国料理", "コラボ 焼肉 韓国"],
+  ["PRONTO 霞が関ビル店", "霞が関", "カフェ", "カフェ・サカバ", "プロント pronto"],
+  ["パンとデリ FLAT Bakery", "霞が関", "カフェ", "ベーカリー・デリ", "フラットベーカリー パン デリ"],
+  ["スターバックス コーヒー 霞ダイニング店", "霞が関", "カフェ", "コーヒー・待ち合わせ", "スタバ すたば すたーばっくす starbucks 霞が関"],
+  ["宮越屋珈琲 霞が関店", "霞が関", "カフェ", "喫茶・コーヒー", "宮越屋 珈琲 コーヒー"],
+  ["Shrimp Garden", "霞が関", "洋食", "海老料理・テラス", "シュリンプガーデン 海老 飯野ビル"],
+  ["うつけ 霞ヶ関飯野ビル店", "霞が関", "和食", "肉つけうどん", "うつけ うどん 飯野ビル"],
+  ["喫茶店ピノキオ 霞ヶ関飯野ビル店", "霞が関", "カフェ", "喫茶・洋食", "ピノキオ 喫茶 パンケーキ"],
+  ["九州沖縄三昧 なんくるないさ 霞ヶ関イイノダイニング", "霞が関", "居酒屋", "九州沖縄料理", "なんくるないさ 沖縄 九州"],
+  ["ロメスパバルボア 霞ヶ関飯野ビル店", "霞が関", "洋食", "焼きスパゲティ", "バルボア ロメスパ パスタ"],
+  ["カフェ・ド・クリエ 霞ヶ関飯野ビル店", "霞が関", "カフェ", "カフェ・軽食", "カフェドクリエ クリエ"],
+  ["BLOSSOM & BOUQUET 日比谷国際ビル店", "霞が関", "カフェ", "サンドイッチ・カフェ", "ブロッサム ブーケ サンドイッチ"],
+  ["かっぽうぎ 飯野ビル店", "霞が関", "居酒屋", "家庭料理・定食", "かっぽうぎ 定食 居酒屋"],
+  ["魚がし日本一 霞ヶ関飯野ビル店", "霞が関", "寿司", "寿司・立ち食い", "魚がし日本一 寿司"],
+  ["かつ吉 日比谷国際ビル店", "霞が関", "和食", "とんかつ", "かつ吉 とんかつ"],
+  ["スターバックス コーヒー 日比谷国際ビル店", "霞が関", "カフェ", "コーヒー・休憩", "スタバ すたば すたーばっくす starbucks 日比谷国際"],
+  ["コスタコーヒー 日比谷国際ビル店", "霞が関", "カフェ", "コーヒー・テイクアウト", "コスタ costa コーヒー"],
+  ["CRISP SALAD WORKS 日比谷国際ビル店", "霞が関", "洋食", "サラダ・ヘルシー", "クリスプ サラダ"],
+  ["マッコリ酒家&韓国料理 ぽど 日比谷", "霞が関", "中華", "韓国料理・ランチ", "ぽど 韓国 マッコリ"],
+  ["とりかく 日比谷シティ店", "霞が関", "居酒屋", "鳥料理・親子丼", "とりかく 鳥料理 焼き鳥"],
+  ["デリカショップ 日比谷国際ビル店", "霞が関", "和食", "弁当・テイクアウト", "デリカ 弁当"],
+  ["和伊の介 日比谷店", "霞が関", "洋食", "イタリアン", "和伊の介 イタリアン"],
+  ["天鴻餃子房 日比谷国際ビル店", "霞が関", "中華", "餃子・中華", "天鴻 餃子"],
+  ["日ゞ小路 日比谷国際ビル店", "霞が関", "居酒屋", "屋台村・居酒屋", "日ゞ小路 屋台 居酒屋"],
+  ["陳家私菜 新橋店", "霞が関", "中華", "麻婆豆腐・中華", "陳家私菜 中華 麻婆"],
+  ["中華そば専門 田中そば店 日比谷シティ店", "霞が関", "ラーメン", "中華そば", "田中そば ラーメン 中華そば"],
+  ["ナチュラルローソン 日比谷国際ビル店", "霞が関", "カフェ", "コンビニ軽食・コーヒー", "ナチュラルローソン コーヒー 軽食"],
+  ["虎ノ門ヒルズカフェ", "霞が関", "カフェ", "カフェ・待ち合わせ", "虎ノ門ヒルズ カフェ"],
+  ["スターバックス コーヒー 虎ノ門ヒルズ ステーションタワー店", "霞が関", "カフェ", "コーヒー・駅近", "スタバ すたば すたーばっくす starbucks 虎ノ門"],
+  ["TOKYO NODE CAFE", "霞が関", "カフェ", "カフェ・眺望", "トーキョーノード カフェ"],
+  ["TOKYO NODE DINING", "霞が関", "洋食", "ダイニング・会食", "トーキョーノード ダイニング"],
+  ["BEAVER BREAD BROTHERS", "霞が関", "カフェ", "ベーカリー・パン", "ビーバーブレッド パン"],
+  ["Builders", "霞が関", "洋食", "バーガー・カジュアル", "ビルダーズ バーガー"],
+  ["虎ノ門 おお島", "霞が関", "和食", "和食・割烹", "おお島 和食"],
+  ["Ata caved'occi", "霞が関", "洋食", "シーフード・ワイン", "アタ カーブドッチ ワイン"],
+  ["CRAZY PIZZA TORANOMON", "霞が関", "洋食", "ピザ・イタリアン", "クレイジーピザ ピザ"],
+  ["CHICKEN RICE CLUB", "霞が関", "洋食", "チキンライス・アジアン", "チキンライスクラブ"],
+  ["Pacific STAND-IN", "霞が関", "洋食", "サンド・カフェ", "パシフィック スタンドイン"],
+  ["PON CUE BON", "霞が関", "洋食", "ワイン・ビストロ", "ポンキュッボン"],
+  ["鍈", "霞が関", "和食", "和食・小料理", "鍈 和食"],
+  ["雅宝 ARBOL seiro", "霞が関", "和食", "せいろ蒸し・和食", "雅宝 アルボール せいろ"],
+  ["dam brewery restaurant", "霞が関", "居酒屋", "クラフトビール・レストラン", "ダムブルワリー ビール"],
+  ["PUBLIC BAR", "霞が関", "居酒屋", "バー・一杯", "パブリックバー"],
+  ["立食いすし 魚河岸 山治", "霞が関", "寿司", "立食い寿司", "山治 寿司"],
+  ["角打ち KAN", "霞が関", "居酒屋", "角打ち・日本酒", "KAN 角打ち 日本酒"],
+  ["創作串揚げ つだ", "霞が関", "居酒屋", "串揚げ・和食", "つだ 串揚げ"],
+  ["宝屋 虎ノ門ヒルズ", "霞が関", "和食", "和食・ランチ", "宝屋"],
+  ["PARK7 虎ノ門ヒルズ", "霞が関", "カフェ", "カフェ・軽食", "park7 パークセブン"],
+  ["バイウェイヌードル 虎ノ門ヒルズ", "霞が関", "ラーメン", "ヌードル・短時間", "バイウェイヌードル ラーメン"],
+].map(([name, area, genre, purpose, aliases], index) => ({
+  name,
+  area,
+  genre,
+  purpose,
+  aliases,
+  walk: 1 + (index % 9),
+  seats: genre === "カフェ" ? 6 + (index % 7) : genre === "スイーツ" ? 8 + (index % 5) : 5 + (index % 8),
+  baseCrowd: 41 + ((index * 7) % 42),
+  color:
+    genre === "カフェ"
+      ? ["#c96f86", "#8cb6b0", "#9d7f95", "#b88a3d"][index % 4]
+      : genre === "和食"
+        ? "#91aa7a"
+        : genre === "中華"
+          ? "#d88417"
+          : genre === "居酒屋"
+            ? "#8a7564"
+            : genre === "ラーメン"
+              ? "#c85f4c"
+              : genre === "寿司"
+                ? "#6ca2b5"
+                : "#9fb5c8",
+}));
+
+restaurants.push(...kasumigasekiRestaurants);
+
 const seenRestaurantKeys = new Set();
 const dedupedRestaurants = [];
 restaurants.forEach((restaurant) => {
@@ -1434,13 +1534,23 @@ function matchesRestaurant(restaurant) {
 }
 
 function buildWebSearchUrl(restaurant) {
-  const query = `${restaurant.name} ${restaurant.area} 東京駅 公式`;
+  const query = `${restaurant.name} ${restaurant.area} 公式`;
   return `https://www.google.com/search?q=${encodeURIComponent(query)}`;
 }
 
 function buildMapUrl(restaurant) {
-  const query = `${restaurant.name} ${restaurant.area} 東京駅`;
+  const query = `${restaurant.name} ${restaurant.area}`;
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
+function getAccessLabel(restaurant) {
+  if (restaurant.area === "霞が関") {
+    return `霞が関駅から徒歩${restaurant.walk}分`;
+  }
+  if (restaurant.area === "皇居周辺") {
+    return `最寄り駅・皇居周辺から徒歩${restaurant.walk}分`;
+  }
+  return `東京駅から徒歩${restaurant.walk}分`;
 }
 
 function openDetail(restaurant) {
@@ -1451,9 +1561,9 @@ function openDetail(restaurant) {
   elements.detailArea.textContent = `${restaurant.area}・${restaurant.genre}`;
   elements.detailTitle.textContent = restaurant.name;
   elements.detailDescription.textContent =
-    `${restaurant.purpose}のお店です。東京駅から徒歩${restaurant.walk}分目安。` +
+    `${restaurant.purpose}のお店です。${getAccessLabel(restaurant)}目安。` +
     `いまの混雑目安は${crowd}%で「${status.label}」です。`;
-  elements.detailWalk.textContent = `徒歩${restaurant.walk}分`;
+  elements.detailWalk.textContent = getAccessLabel(restaurant);
   elements.detailSeat.textContent = wait === 0 ? `空席 ${restaurant.seats}席目安` : `待ち ${wait}分`;
   elements.detailCrowd.textContent = `混雑 ${crowd}%`;
   elements.detailWebsite.href = restaurant.url || buildWebSearchUrl(restaurant);
@@ -1525,7 +1635,7 @@ function render() {
     node.querySelector(".status-pill").style.background = status.color;
     node.querySelector(".meta").textContent = `${restaurant.area}・${restaurant.genre} / ${restaurant.purpose}`;
     node.querySelector(".signal strong").textContent = `${crowd}%`;
-    node.querySelector(".walk").textContent = `東京駅から徒歩${restaurant.walk}分`;
+    node.querySelector(".walk").textContent = getAccessLabel(restaurant);
     node.querySelector(".seat").textContent =
       restaurant.wait === 0 ? `空席目安 ${restaurant.seats}席` : `待ち ${restaurant.wait}分`;
     node.querySelector(".card-footer button").addEventListener("click", () => openDetail(restaurant));

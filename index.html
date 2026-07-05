@@ -3,31 +3,31 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#188a5b" />
+    <meta name="theme-color" content="#5f4b67" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Table Flow" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta
       name="description"
-      content="東京駅周辺・丸の内・八重洲の飲食店の混雑状況をスマホで見られるアプリです。"
+      content="東京駅周辺・丸の内・八重洲・霞が関の飲食店の混雑状況をスマホで見られるアプリです。"
     />
     <title>Tokyo Table Flow</title>
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="icon.svg" />
-    <link rel="stylesheet" href="styles.css?v=6" />
+    <link rel="stylesheet" href="styles.css?v=7" />
   </head>
   <body>
     <main class="app-shell">
       <section class="top-panel">
         <div class="status-bar">
           <span id="clock">--:--</span>
-          <span>東京駅周辺</span>
+          <span>東京駅・霞が関</span>
         </div>
 
         <header class="app-header">
           <div>
-            <p class="eyebrow">Marunouchi / Yaesu</p>
+            <p class="eyebrow">Marunouchi / Yaesu / Kasumigaseki</p>
             <h1>Tokyo Table Flow</h1>
           </div>
           <button class="icon-button" id="refreshButton" type="button" aria-label="混雑状況を更新">
@@ -61,8 +61,12 @@
           <button class="map-pin station active" type="button" data-area="駅ナカ" aria-label="駅ナカで絞り込み">
             <span>駅</span>
           </button>
+          <button class="map-pin kasumi active" type="button" data-area="霞が関" aria-label="霞が関で絞り込み">
+            <span>霞</span>
+          </button>
           <span class="map-label west">丸の内</span>
           <span class="map-label east">八重洲</span>
+          <span class="map-label south">霞が関</span>
         </div>
       </section>
 
@@ -78,6 +82,7 @@
           <button type="button" data-filter="area" data-value="八重洲">八重洲</button>
           <button type="button" data-filter="area" data-value="駅ナカ">駅ナカ</button>
           <button type="button" data-filter="area" data-value="皇居周辺">皇居周辺</button>
+          <button type="button" data-filter="area" data-value="霞が関">霞が関</button>
         </div>
 
         <div class="chips" aria-label="ジャンル">
@@ -157,6 +162,6 @@
       </section>
     </div>
 
-    <script src="app.js?v=6"></script>
+    <script src="app.js?v=7"></script>
   </body>
 </html>

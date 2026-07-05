@@ -13,6 +13,7 @@
   --rose: #c96f86;
   --plum: #5f4b67;
   --gold: #b88a3d;
+  --mauve: #9d7f95;
   --shadow: 0 16px 38px rgba(24, 32, 31, 0.12);
 }
 
@@ -146,11 +147,12 @@ h1 {
 
 .station-map {
   position: relative;
-  height: 132px;
+  height: 148px;
   margin-top: 14px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background:
+    radial-gradient(circle at 50% 92%, rgba(200, 121, 150, 0.2), transparent 26%),
     linear-gradient(90deg, rgba(39, 111, 191, 0.1) 0 48%, transparent 48% 52%, rgba(216, 132, 23, 0.12) 52% 100%),
     repeating-linear-gradient(0deg, transparent 0 23px, rgba(24, 32, 31, 0.06) 24px),
     #fbfcfb;
@@ -208,6 +210,12 @@ h1 {
   background: var(--teal);
 }
 
+.map-pin.kasumi {
+  left: 40%;
+  bottom: 11px;
+  background: var(--mauve);
+}
+
 .map-label {
   position: absolute;
   top: 14px;
@@ -222,6 +230,13 @@ h1 {
 
 .map-label.east {
   right: 18px;
+}
+
+.map-label.south {
+  left: 18px;
+  bottom: 12px;
+  top: auto;
+  color: var(--plum);
 }
 
 .controls {
