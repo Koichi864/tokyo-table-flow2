@@ -9,13 +9,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta
       name="description"
-      content="東京駅周辺・丸の内・八重洲・霞が関の飲食店の混雑状況をスマホで見られるアプリです。"
+      content="東京駅周辺・丸の内・八重洲・日比谷・有楽町・霞が関の飲食店の混雑状況をスマホで見られるアプリです。"
     />
     <title>Tokyo Table Flow</title>
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="icon.svg" />
-    <link rel="stylesheet" href="styles.css?v=8" />
+    <link rel="stylesheet" href="styles.css?v=9" />
   </head>
   <body>
     <main class="app-shell">
@@ -81,6 +81,7 @@
           <button type="button" data-filter="area" data-value="丸の内">丸の内</button>
           <button type="button" data-filter="area" data-value="八重洲">八重洲</button>
           <button type="button" data-filter="area" data-value="駅ナカ">駅ナカ</button>
+          <button type="button" data-filter="area" data-value="日比谷・有楽町">日比谷・有楽町</button>
           <button type="button" data-filter="area" data-value="皇居周辺">皇居周辺</button>
           <button type="button" data-filter="area" data-value="霞が関">霞が関</button>
         </div>
@@ -109,6 +110,12 @@
           <span id="mapCount">0店</span>
         </div>
         <div class="real-map" id="realMap">
+          <div class="map-tools" aria-label="地図操作">
+            <button id="mapZoomOut" type="button" aria-label="地図を縮小">−</button>
+            <span id="mapZoomLabel">標準</span>
+            <button id="mapZoomIn" type="button" aria-label="地図を拡大">＋</button>
+            <button id="mapExpandButton" type="button" aria-label="地図を大きく表示">拡大</button>
+          </div>
           <div class="map-tiles" id="mapTiles" aria-hidden="true"></div>
           <div class="map-points" id="mapPoints"></div>
           <a class="map-credit" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">
@@ -184,6 +191,6 @@
       </section>
     </div>
 
-    <script src="app.js?v=8"></script>
+    <script src="app.js?v=9"></script>
   </body>
 </html>

@@ -1431,6 +1431,158 @@ const kasumigasekiRestaurants = [
 
 restaurants.push(...kasumigasekiRestaurants);
 
+const corridorRestaurants = [
+  ["東京ミッドタウン日比谷 串揚げ 新宿立吉", "日比谷・有楽町", "和食", "串揚げ・日比谷ランチ", "立吉 串揚げ 東京ミッドタウン日比谷"],
+  ["東京ミッドタウン日比谷 三ぶん", "日比谷・有楽町", "和食", "割烹・和食", "三ぶん 和食 日比谷"],
+  ["東京ミッドタウン日比谷 三分亭", "日比谷・有楽町", "和食", "和食・定食", "三分亭 日比谷"],
+  ["東京ミッドタウン日比谷 鮨なんば", "日比谷・有楽町", "寿司", "寿司・会食", "鮨なんば 寿司"],
+  ["東京ミッドタウン日比谷 鈴波", "日比谷・有楽町", "和食", "魚定食・粕漬け", "鈴波 魚 定食"],
+  ["東京ミッドタウン日比谷 そばがみ", "日比谷・有楽町", "和食", "そば・和食", "そばがみ 蕎麦"],
+  ["東京ミッドタウン日比谷 天ぷら 天寅", "日比谷・有楽町", "和食", "天ぷら・天丼", "天寅 天ぷら"],
+  ["東京ミッドタウン日比谷 NADABAN by HAL YAMASHITA", "日比谷・有楽町", "和食", "和食・創作料理", "ナダバン 和食"],
+  ["東京ミッドタウン日比谷 南禅寺 瓢亭", "日比谷・有楽町", "和食", "京料理・会食", "瓢亭 京料理"],
+  ["東京ミッドタウン日比谷 日本料理 龍吟", "日比谷・有楽町", "和食", "日本料理・特別な食事", "龍吟 日本料理"],
+  ["東京ミッドタウン日比谷 日比谷蟹みつ", "日比谷・有楽町", "和食", "蟹料理・会食", "蟹みつ かに"],
+  ["東京ミッドタウン日比谷 HIBIYA CENTRAL MARKET 一角", "日比谷・有楽町", "居酒屋", "和食・軽く一杯", "一角 セントラルマーケット"],
+  ["東京ミッドタウン日比谷 REVIVE KITCHEN THREE", "日比谷・有楽町", "カフェ", "野菜・ヘルシー", "リバイブキッチン THREE"],
+  ["東京ミッドタウン日比谷 中国料理 礼華 四君子草", "日比谷・有楽町", "中華", "中華・会食", "礼華 中華"],
+  ["東京ミッドタウン日比谷 GOOD CHEESE GOOD PIZZA", "日比谷・有楽町", "洋食", "ピザ・チーズ", "グッドチーズ ピザ"],
+  ["東京ミッドタウン日比谷 SALONE TOKYO", "日比谷・有楽町", "洋食", "イタリアン・会食", "サローネ イタリアン"],
+  ["東京ミッドタウン日比谷 San Antonio TEX-MEX", "日比谷・有楽町", "洋食", "テックスメックス", "サンアントニオ タコス"],
+  ["東京ミッドタウン日比谷 Susan's MEAT BALL", "日比谷・有楽町", "洋食", "ミートボール・洋食", "スーザンズ ミートボール"],
+  ["東京ミッドタウン日比谷 DRAWING HOUSE OF HIBIYA", "日比谷・有楽町", "洋食", "レストラン・テラス", "ドローイングハウス"],
+  ["東京ミッドタウン日比谷 Bar&Tapas Celona", "日比谷・有楽町", "居酒屋", "タパス・バル", "セロナ タパス"],
+  ["東京ミッドタウン日比谷 Värmen", "日比谷・有楽町", "洋食", "ビストロ・ワイン", "バーマン ビストロ"],
+  ["東京ミッドタウン日比谷 Buvette", "日比谷・有楽町", "カフェ", "カフェ・ビストロ", "ブヴェット カフェ"],
+  ["東京ミッドタウン日比谷 BOSTON Seafood Place", "日比谷・有楽町", "洋食", "シーフード", "ボストン シーフード"],
+  ["東京ミッドタウン日比谷 Mr.FARMER", "日比谷・有楽町", "洋食", "野菜・サラダ", "ミスターファーマー サラダ"],
+  ["東京ミッドタウン日比谷 morceau", "日比谷・有楽町", "洋食", "フレンチ・ビストロ", "モルソー フレンチ"],
+  ["東京ミッドタウン日比谷 LUBINA", "日比谷・有楽町", "洋食", "スペイン料理", "ルビーナ スペイン"],
+  ["東京ミッドタウン日比谷 RESTAURANT TOYO", "日比谷・有楽町", "洋食", "フレンチ・会食", "トヨ フレンチ"],
+  ["東京ミッドタウン日比谷 DIYA", "日比谷・有楽町", "洋食", "インド料理", "ディヤ カレー インド"],
+  ["東京ミッドタウン日比谷 PHUKET ORIENTAL", "日比谷・有楽町", "洋食", "タイ料理", "プーケットオリエンタル タイ"],
+  ["東京ミッドタウン日比谷 VIETNAMESE CYCLO", "日比谷・有楽町", "洋食", "ベトナム料理", "シクロ ベトナム"],
+  ["東京ミッドタウン日比谷 STAR BAR", "日比谷・有楽町", "居酒屋", "バー・一杯", "スターバー"],
+  ["東京ミッドタウン日比谷 Q CAFE by Royal Garden Cafe", "日比谷・有楽町", "カフェ", "カフェ・休憩", "キューカフェ ロイヤルガーデン"],
+  ["東京ミッドタウン日比谷 鈴懸", "日比谷・有楽町", "スイーツ", "和菓子・甘味", "鈴懸 和菓子"],
+  ["東京ミッドタウン日比谷 スターバックス コーヒー", "日比谷・有楽町", "カフェ", "コーヒー・休憩", "スタバ すたば すたーばっくす starbucks 日比谷"],
+  ["東京ミッドタウン日比谷 TEA ROOM KIKI", "日比谷・有楽町", "カフェ", "紅茶・スコーン", "キキ 紅茶 スコーン"],
+  ["東京ミッドタウン日比谷 DEAN & DELUCA CAFE", "日比谷・有楽町", "カフェ", "カフェ・デリ", "ディーンアンドデルーカ"],
+  ["東京ミッドタウン日比谷 林屋新兵衛", "日比谷・有楽町", "カフェ", "抹茶・甘味", "林屋新兵衛 抹茶"],
+  ["東京ミッドタウン日比谷 Patisserie & Cafe DEL'IMMO", "日比谷・有楽町", "スイーツ", "ショコラ・パフェ", "デリーモ チョコ パフェ"],
+  ["東京ミッドタウン日比谷 CREEK / 有隣堂", "日比谷・有楽町", "カフェ", "ブックカフェ", "クリーク 有隣堂"],
+  ["東京ミッドタウン日比谷 Beurre Verite", "日比谷・有楽町", "スイーツ", "バター菓子", "ブールヴェリテ"],
+  ["東京ミッドタウン日比谷 リンツ ショコラ ブティック", "日比谷・有楽町", "スイーツ", "チョコレート", "リンツ チョコ"],
+  ["東京ミッドタウン日比谷 LEXUS MEETS", "日比谷・有楽町", "カフェ", "カフェ・ラウンジ", "レクサスミーツ"],
+  ["東京ミッドタウン日比谷 JEAN FRANCOIS", "日比谷・有楽町", "カフェ", "ベーカリー・パン", "ジャンフランソワ パン"],
+  ["東京ミッドタウン日比谷 boulangerie Bonheur", "日比谷・有楽町", "カフェ", "ベーカリー", "ボヌール パン"],
+  ["日比谷シャンテ ゆとりの空間", "日比谷・有楽町", "和食", "家庭料理・カフェ", "ゆとりの空間 栗原はるみ"],
+  ["日比谷シャンテ 果実園リーベル", "日比谷・有楽町", "カフェ", "フルーツパフェ", "果実園 リーベル"],
+  ["日比谷シャンテ 添好運 日比谷店", "日比谷・有楽町", "中華", "点心・飲茶", "ティムホーワン 点心"],
+  ["日比谷シャンテ やさいの王様", "日比谷・有楽町", "洋食", "野菜料理", "やさいの王様"],
+  ["日比谷シャンテ 梅丘寿司の美登利総本店", "日比谷・有楽町", "寿司", "寿司・行列", "美登利 寿司"],
+  ["日比谷シャンテ カフェゆとりの空間", "日比谷・有楽町", "カフェ", "カフェ・軽食", "カフェ ゆとり"],
+  ["日比谷シャンテ 星乃珈琲店", "日比谷・有楽町", "カフェ", "喫茶・スフレパンケーキ", "星乃珈琲"],
+  ["日比谷シャンテ 和幸", "日比谷・有楽町", "和食", "とんかつ", "和幸 とんかつ"],
+  ["日比谷シャンテ CHAYA Natural & Wild Table", "日比谷・有楽町", "洋食", "ナチュラルフード", "チャヤ マクロビ"],
+  ["日比谷OKUROJI 炭焼 うな富士", "日比谷・有楽町", "和食", "うなぎ", "うな富士 鰻"],
+  ["日比谷OKUROJI 天ぷらとワイン 大塩", "日比谷・有楽町", "居酒屋", "天ぷら・ワイン", "大塩 天ぷら"],
+  ["日比谷OKUROJI 銀座 豉 KUKI", "日比谷・有楽町", "和食", "味噌料理・和食", "くき 味噌"],
+  ["日比谷OKUROJI YORIMICHI Odaiba", "日比谷・有楽町", "居酒屋", "バル・軽く一杯", "ヨリミチ"],
+  ["日比谷OKUROJI THE HAMILTON", "日比谷・有楽町", "居酒屋", "バー・洋食", "ハミルトン バー"],
+  ["日比谷OKUROJI 天ぷら酒場 上ル商店", "日比谷・有楽町", "居酒屋", "天ぷら・酒場", "上ル商店"],
+  ["日比谷OKUROJI やきとり 〇金", "日比谷・有楽町", "居酒屋", "焼鳥・居酒屋", "まるきん 焼鳥"],
+  ["日比谷OKUROJI RAMEN AVENUE", "日比谷・有楽町", "ラーメン", "ラーメン・短時間", "ラーメン アベニュー"],
+  ["有楽町イトシア クリスピー・クリーム・ドーナツ", "日比谷・有楽町", "スイーツ", "ドーナツ・カフェ", "クリスピークリーム"],
+  ["有楽町イトシア 椿屋珈琲", "日比谷・有楽町", "カフェ", "喫茶・ケーキ", "椿屋珈琲"],
+  ["有楽町イトシア マクドナルド", "日比谷・有楽町", "洋食", "ハンバーガー・短時間", "マクドナルド"],
+  ["有楽町イトシア KAMONKA 點", "日比谷・有楽町", "中華", "中華・点心", "過門香 カモンカ"],
+  ["有楽町イトシア トラットリア コルティブォーノ", "日比谷・有楽町", "洋食", "イタリアン", "コルティブォーノ"],
+  ["有楽町イトシア バインセオ サイゴン", "日比谷・有楽町", "洋食", "ベトナム料理", "バインセオ サイゴン"],
+  ["有楽町イトシア うまやの楽屋", "日比谷・有楽町", "和食", "定食・和食", "うまや"],
+  ["有楽町マルイ 猿田彦珈琲", "日比谷・有楽町", "カフェ", "スペシャルティコーヒー", "猿田彦 コーヒー"],
+  ["有楽町マルイ スターバックス コーヒー", "日比谷・有楽町", "カフェ", "コーヒー・休憩", "スタバ すたば starbucks 有楽町"],
+  ["有楽町マルイ 24/7 cafe apartment", "日比谷・有楽町", "カフェ", "カフェごはん", "24/7 カフェ"],
+  ["東京交通会館 交通飯店", "日比谷・有楽町", "中華", "町中華・チャーハン", "交通飯店 炒飯"],
+  ["東京交通会館 麺屋ひょっとこ", "日比谷・有楽町", "ラーメン", "和風ラーメン", "ひょっとこ ラーメン"],
+  ["東京交通会館 北海道どさんこプラザ ソフトクリーム", "日比谷・有楽町", "スイーツ", "ソフトクリーム", "どさんこプラザ"],
+  ["東京交通会館 ひょっとこ 交通会館店", "日比谷・有楽町", "ラーメン", "柚子ラーメン", "ひょっとこ 柚子"],
+  ["東京交通会館 甘味おかめ", "日比谷・有楽町", "スイーツ", "甘味・おはぎ", "おかめ 甘味"],
+  ["東京交通会館 ローヤル", "日比谷・有楽町", "カフェ", "喫茶・洋食", "ローヤル 喫茶"],
+  ["東京交通会館 キッチン大正軒", "日比谷・有楽町", "洋食", "洋食・揚げ物", "大正軒 洋食"],
+  ["東京交通会館 むらからまちから館", "日比谷・有楽町", "和食", "物産・軽食", "むらからまちから"],
+  ["ビックカメラ有楽町店 カフェコーナー", "日比谷・有楽町", "カフェ", "休憩・コーヒー", "ビックカメラ カフェ"],
+  ["有楽町高架下 まんぷく食堂", "日比谷・有楽町", "居酒屋", "食堂・居酒屋", "まんぷく食堂"],
+  ["有楽町高架下 登運とん", "日比谷・有楽町", "居酒屋", "もつ焼き・居酒屋", "とんとん もつ焼き"],
+  ["有楽町高架下 新日の基", "日比谷・有楽町", "居酒屋", "海鮮・居酒屋", "新日の基"],
+  ["有楽町ガード下 ふくてい", "日比谷・有楽町", "洋食", "ステーキカレー", "ふくてい カレー"],
+  ["有楽町ガード下 立鮨葵", "日比谷・有楽町", "寿司", "立ち食い寿司", "葵 寿司"],
+  ["有楽町ガード下 トラットリア チャオ", "日比谷・有楽町", "洋食", "イタリアン", "チャオ イタリアン"],
+  ["有楽町ガード下 釜焼鳥本舗おやひなや", "日比谷・有楽町", "居酒屋", "骨付鳥・居酒屋", "おやひなや"],
+  ["有楽町ガード下 ヴィノスやまざき 有楽町店", "日比谷・有楽町", "居酒屋", "ワイン・軽食", "ヴィノス ワイン"],
+  ["有楽町電気ビル ラ・メール・プラール", "日比谷・有楽町", "洋食", "オムレツ・フレンチ", "メールプラール"],
+  ["有楽町電気ビル ウルフギャング・ステーキハウス", "日比谷・有楽町", "洋食", "ステーキ・会食", "ウルフギャング ステーキ"],
+  ["有楽町電気ビル タリーズコーヒー", "日比谷・有楽町", "カフェ", "コーヒー・休憩", "タリーズ"],
+  ["日比谷パークフロント スターバックス コーヒー", "日比谷・有楽町", "カフェ", "コーヒー・休憩", "スタバ すたば starbucks"],
+  ["日比谷パークフロント Le Pain Quotidien", "日比谷・有楽町", "カフェ", "ベーカリーカフェ", "ルパンコティディアン"],
+  ["日比谷パークフロント illy CAFFE", "日比谷・有楽町", "カフェ", "エスプレッソ・軽食", "illy イリー"],
+  ["日比谷公園 松本楼", "日比谷・有楽町", "洋食", "洋食・カレー", "松本楼 カレー"],
+  ["日比谷公園 日比谷サロー", "日比谷・有楽町", "洋食", "テラス・ビアガーデン", "日比谷サロー"],
+  ["帝国ホテル ラ ブラスリー", "日比谷・有楽町", "洋食", "洋食・ホテル", "帝国ホテル ブラスリー"],
+  ["帝国ホテル パークサイドダイナー", "日比谷・有楽町", "洋食", "ホテルダイナー", "パークサイドダイナー"],
+  ["帝国ホテル ランデブーラウンジ", "日比谷・有楽町", "カフェ", "ラウンジ・待ち合わせ", "ランデブーラウンジ"],
+  ["帝国ホテル ガルガンチュワ", "日比谷・有楽町", "スイーツ", "ケーキ・デリ", "ガルガンチュワ"],
+  ["ザ・ペニンシュラ東京 ザ・ロビー", "日比谷・有楽町", "カフェ", "アフタヌーンティー", "ペニンシュラ ロビー"],
+  ["ザ・ペニンシュラ東京 PETER", "日比谷・有楽町", "洋食", "グリル・バー", "ピーター ペニンシュラ"],
+  ["ザ・ペニンシュラ東京 ヘイフンテラス", "日比谷・有楽町", "中華", "広東料理", "ヘイフンテラス 中華"],
+  ["ザ・ペニンシュラ東京 ブティック＆カフェ", "日比谷・有楽町", "カフェ", "カフェ・スイーツ", "ペニンシュラ カフェ"],
+  ["丸の内ブリックスクエア A16 TOKYO", "丸の内", "洋食", "イタリアン・テラス", "A16 イタリアン"],
+  ["丸の内ブリックスクエア CAFE1894", "丸の内", "カフェ", "クラシックカフェ", "カフェ1894"],
+  ["丸の内ブリックスクエア mikuni MARUNOUCHI", "丸の内", "洋食", "フレンチ・会食", "ミクニ フレンチ"],
+  ["丸の内ブリックスクエア ラ ブティック ドゥ ジョエル・ロブション", "丸の内", "カフェ", "ベーカリー・カフェ", "ロブション パン"],
+  ["丸の内ブリックスクエア 醍醐味", "丸の内", "和食", "和食・炉端", "醍醐味 和食"],
+  ["丸の内 MY PLAZA アンセンブル バイマイハンブルハウス", "丸の内", "洋食", "シンガポール料理", "アンセンブル"],
+  ["丸の内 MY PLAZA RIGOLETTO WINE AND BAR", "丸の内", "洋食", "イタリアン・ワイン", "リゴレット"],
+  ["丸の内 MY PLAZA 天鴻餃子房", "丸の内", "中華", "餃子・中華", "天鴻餃子房"],
+  ["丸の内 MY PLAZA つるとんたん", "丸の内", "和食", "うどん・会食", "つるとんたん"],
+  ["丸の内仲通り ローズベーカリー", "丸の内", "カフェ", "カフェ・ケーキ", "ローズベーカリー"],
+  ["丸の内仲通り エシレ・メゾン デュ ブール", "丸の内", "スイーツ", "バター菓子", "エシレ"],
+  ["丸の内仲通り CACAO SAMPAKA", "丸の内", "スイーツ", "チョコレート", "カカオサンパカ"],
+  ["新東京ビル スターバックス コーヒー", "丸の内", "カフェ", "コーヒー・休憩", "スタバ すたば starbucks 新東京ビル"],
+  ["新東京ビル タニタカフェ", "丸の内", "カフェ", "ヘルシーカフェ", "タニタカフェ"],
+  ["新国際ビル サイゼリヤ", "丸の内", "洋食", "イタリアン・短時間", "サイゼリヤ"],
+  ["国際ビル ムスムス", "丸の内", "和食", "蒸し料理・和食", "ムスムス"],
+  ["国際ビル ジャックポット", "丸の内", "洋食", "オイスター・洋食", "ジャックポット"],
+  ["国際ビル ラ・ベルデ", "丸の内", "洋食", "パスタ・イタリアン", "ラベルデ"],
+].map(([name, area, genre, purpose, aliases], index) => ({
+  name,
+  area,
+  genre,
+  purpose,
+  aliases,
+  walk: area === "日比谷・有楽町" ? 1 + (index % 9) : 3 + (index % 7),
+  seats: genre === "スイーツ" ? 8 + (index % 5) : genre === "カフェ" ? 7 + (index % 7) : 5 + (index % 9),
+  baseCrowd: 39 + ((index * 5) % 44),
+  color:
+    genre === "スイーツ"
+      ? ["#d49ab4", "#d2a96d", "#c7a9c9", "#d7bd5a"][index % 4]
+      : genre === "カフェ"
+        ? ["#c96f86", "#8cb6b0", "#9d7f95"][index % 3]
+        : genre === "和食"
+          ? "#91aa7a"
+          : genre === "中華"
+            ? "#d88417"
+            : genre === "居酒屋"
+              ? "#8a7564"
+              : genre === "ラーメン"
+                ? "#c85f4c"
+                : genre === "寿司"
+                  ? "#6ca2b5"
+                  : "#9fb5c8",
+}));
+
+restaurants.push(...corridorRestaurants);
+
 const seenRestaurantKeys = new Set();
 const dedupedRestaurants = [];
 restaurants.forEach((restaurant) => {
@@ -1447,6 +1599,8 @@ const state = {
   genre: "all",
   availableOnly: false,
   search: "",
+  mapZoomOffset: 0,
+  mapExpanded: false,
 };
 
 const elements = {
@@ -1465,6 +1619,10 @@ const elements = {
   mapPoints: document.querySelector("#mapPoints"),
   mapCount: document.querySelector("#mapCount"),
   mapNavButton: document.querySelector("#mapNavButton"),
+  mapZoomOut: document.querySelector("#mapZoomOut"),
+  mapZoomIn: document.querySelector("#mapZoomIn"),
+  mapZoomLabel: document.querySelector("#mapZoomLabel"),
+  mapExpandButton: document.querySelector("#mapExpandButton"),
   detailModal: document.querySelector("#detailModal"),
   detailArea: document.querySelector("#detailArea"),
   detailTitle: document.querySelector("#detailTitle"),
@@ -1565,6 +1723,9 @@ function buildMapUrl(restaurant) {
 }
 
 function getAccessLabel(restaurant) {
+  if (restaurant.area === "日比谷・有楽町") {
+    return `日比谷・有楽町駅周辺から徒歩${restaurant.walk}分`;
+  }
   if (restaurant.area === "霞が関") {
     return `霞が関駅から徒歩${restaurant.walk}分`;
   }
@@ -1579,6 +1740,7 @@ function getAreaGeoBase(area) {
     駅ナカ: { lat: 35.68125, lon: 139.7671 },
     丸の内: { lat: 35.6819, lon: 139.7621 },
     八重洲: { lat: 35.68105, lon: 139.77035 },
+    "日比谷・有楽町": { lat: 35.6756, lon: 139.7614 },
     皇居周辺: { lat: 35.6832, lon: 139.7576 },
     霞が関: { lat: 35.67295, lon: 139.75045 },
   };
@@ -1599,7 +1761,15 @@ function getRestaurantGeo(restaurant) {
   const angle = (hash % 360) * (Math.PI / 180);
   const radius = 0.0006 + ((hash >>> 4) % 100) / 100000;
   const areaSpread =
-    restaurant.area === "霞が関" ? 1.35 : restaurant.area === "皇居周辺" ? 1.9 : restaurant.area === "八重洲" ? 1.15 : 1;
+    restaurant.area === "霞が関"
+      ? 1.35
+      : restaurant.area === "皇居周辺"
+        ? 1.9
+        : restaurant.area === "日比谷・有楽町"
+          ? 1.75
+          : restaurant.area === "八重洲"
+            ? 1.15
+            : 1;
 
   return {
     lat: base.lat + Math.sin(angle) * radius * areaSpread,
@@ -1616,6 +1786,9 @@ function projectMapPoint(lat, lon, zoom) {
 }
 
 function getMapView(area) {
+  if (area === "日比谷・有楽町") {
+    return { lat: 35.6756, lon: 139.7614, zoom: 15 };
+  }
   if (area === "霞が関") {
     return { lat: 35.67295, lon: 139.75045, zoom: 15 };
   }
@@ -1631,7 +1804,16 @@ function getMapView(area) {
   if (area === "駅ナカ") {
     return { lat: 35.68125, lon: 139.7671, zoom: 15 };
   }
-  return { lat: 35.6778, lon: 139.7618, zoom: 14 };
+  return { lat: 35.6772, lon: 139.7606, zoom: 14 };
+}
+
+function getAdjustedMapView() {
+  const view = getMapView(state.area);
+  const expandedBoost = state.mapExpanded ? 1 : 0;
+  return {
+    ...view,
+    zoom: Math.max(13, Math.min(17, view.zoom + state.mapZoomOffset + expandedBoost)),
+  };
 }
 
 function renderMapTiles(view) {
@@ -1664,22 +1846,65 @@ function renderMapTiles(view) {
   elements.mapTiles.append(fragment);
 }
 
+function updateMapZoomLabel(view) {
+  if (!elements.mapZoomLabel) {
+    return;
+  }
+
+  const label = view.zoom <= 13 ? "広域" : view.zoom >= 17 ? "最大" : `×${view.zoom - 13}`;
+  elements.mapZoomLabel.textContent = label;
+}
+
+function createMapPoint(restaurant, left, top) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "map-point";
+  button.style.left = `${left}px`;
+  button.style.top = `${top}px`;
+  button.style.setProperty("--pin-color", getMapStatusColor(restaurant.crowd));
+  button.setAttribute("aria-label", `${restaurant.name} ${restaurant.crowd}%`);
+  button.innerHTML = "<span></span>";
+  button.addEventListener("click", () => openDetail(restaurant));
+  return button;
+}
+
+function createMapCluster(cluster) {
+  const busiest = cluster.restaurants.reduce((current, restaurant) =>
+    restaurant.crowd > current.crowd ? restaurant : current,
+  );
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "map-cluster";
+  button.style.left = `${cluster.left}px`;
+  button.style.top = `${cluster.top}px`;
+  button.style.setProperty("--pin-color", getMapStatusColor(busiest.crowd));
+  button.textContent = cluster.restaurants.length;
+  button.setAttribute("aria-label", `${cluster.restaurants.length}店まとまり。押すと拡大`);
+  button.addEventListener("click", () => {
+    state.mapZoomOffset = Math.min(3, state.mapZoomOffset + 1);
+    render();
+  });
+  return button;
+}
+
 function renderCrowdMap(visibleRestaurants) {
   if (!elements.realMap || !elements.mapPoints) {
     return;
   }
 
-  const view = getMapView(state.area);
+  const view = getAdjustedMapView();
   const width = elements.realMap.clientWidth || 390;
   const height = elements.realMap.clientHeight || 330;
   const center = projectMapPoint(view.lat, view.lon, view.zoom);
   const fragment = document.createDocumentFragment();
-  const pinLimit = 180;
+  const clusterGrid = view.zoom <= 14 ? 46 : view.zoom === 15 ? 36 : view.zoom === 16 ? 28 : 18;
+  const clusters = new Map();
 
   renderMapTiles(view);
+  updateMapZoomLabel(view);
   elements.mapPoints.innerHTML = "";
 
-  visibleRestaurants.slice(0, pinLimit).forEach((restaurant) => {
+  visibleRestaurants.forEach((restaurant) => {
     const geo = getRestaurantGeo(restaurant);
     const point = projectMapPoint(geo.lat, geo.lon, view.zoom);
     const left = point.x - center.x + width / 2;
@@ -1689,21 +1914,31 @@ function renderCrowdMap(visibleRestaurants) {
       return;
     }
 
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "map-point";
-    button.style.left = `${left}px`;
-    button.style.top = `${top}px`;
-    button.style.setProperty("--pin-color", getMapStatusColor(restaurant.crowd));
-    button.setAttribute("aria-label", `${restaurant.name} ${restaurant.crowd}%`);
-    button.innerHTML = "<span></span>";
-    button.addEventListener("click", () => openDetail(restaurant));
-    fragment.append(button);
+    const key = `${Math.floor(left / clusterGrid)}:${Math.floor(top / clusterGrid)}`;
+    const cluster = clusters.get(key) || { left: 0, top: 0, restaurants: [] };
+    cluster.left += left;
+    cluster.top += top;
+    cluster.restaurants.push(restaurant);
+    clusters.set(key, cluster);
+  });
+
+  clusters.forEach((cluster) => {
+    cluster.left /= cluster.restaurants.length;
+    cluster.top /= cluster.restaurants.length;
+    if (cluster.restaurants.length >= 3 && view.zoom < 17) {
+      fragment.append(createMapCluster(cluster));
+      return;
+    }
+
+    cluster.restaurants.forEach((restaurant, index) => {
+      const angle = (index / Math.max(1, cluster.restaurants.length)) * Math.PI * 2;
+      const spread = Math.min(14, 4 + cluster.restaurants.length);
+      fragment.append(createMapPoint(restaurant, cluster.left + Math.cos(angle) * spread, cluster.top + Math.sin(angle) * spread));
+    });
   });
 
   elements.mapPoints.append(fragment);
-  elements.mapCount.textContent =
-    visibleRestaurants.length > pinLimit ? `${pinLimit}+店` : `${visibleRestaurants.length}店`;
+  elements.mapCount.textContent = `${visibleRestaurants.length}店 / ${elements.mapPoints.children.length}ピン`;
 }
 
 function openDetail(restaurant) {
@@ -1871,12 +2106,38 @@ elements.mapNavButton.addEventListener("click", () => {
   elements.realMap.scrollIntoView({ behavior: "smooth", block: "center" });
 });
 
+elements.mapZoomOut.addEventListener("click", () => {
+  state.mapZoomOffset = Math.max(-1, state.mapZoomOffset - 1);
+  render();
+});
+
+elements.mapZoomIn.addEventListener("click", () => {
+  state.mapZoomOffset = Math.min(3, state.mapZoomOffset + 1);
+  render();
+});
+
+elements.mapExpandButton.addEventListener("click", () => {
+  state.mapExpanded = !state.mapExpanded;
+  elements.realMap.classList.toggle("expanded", state.mapExpanded);
+  document.body.classList.toggle("map-expanded", state.mapExpanded);
+  elements.mapExpandButton.textContent = state.mapExpanded ? "閉じる" : "拡大";
+  elements.mapExpandButton.setAttribute("aria-label", state.mapExpanded ? "地図を閉じる" : "地図を大きく表示");
+  window.setTimeout(render, 80);
+});
+
 document.querySelectorAll("[data-close-detail]").forEach((button) => {
   button.addEventListener("click", closeDetail);
 });
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
+    if (state.mapExpanded) {
+      state.mapExpanded = false;
+      elements.realMap.classList.remove("expanded");
+      document.body.classList.remove("map-expanded");
+      elements.mapExpandButton.textContent = "拡大";
+      elements.mapExpandButton.setAttribute("aria-label", "地図を大きく表示");
+    }
     closeDetail();
   }
 });
