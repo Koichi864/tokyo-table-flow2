@@ -1460,6 +1460,11 @@ const elements = {
   searchInput: document.querySelector("#searchInput"),
   availableOnly: document.querySelector("#availableOnly"),
   refreshButton: document.querySelector("#refreshButton"),
+  realMap: document.querySelector("#realMap"),
+  mapTiles: document.querySelector("#mapTiles"),
+  mapPoints: document.querySelector("#mapPoints"),
+  mapCount: document.querySelector("#mapCount"),
+  mapNavButton: document.querySelector("#mapNavButton"),
   detailModal: document.querySelector("#detailModal"),
   detailArea: document.querySelector("#detailArea"),
   detailTitle: document.querySelector("#detailTitle"),
@@ -1503,6 +1508,22 @@ function getStatus(crowd) {
     return { label: "混雑", color: "#c85f26", wait: 18 };
   }
   return { label: "満席近い", color: "#c54435", wait: 30 };
+}
+
+function getMapStatusColor(crowd) {
+  if (crowd < 45) {
+    return "#188a5b";
+  }
+  if (crowd < 60) {
+    return "#79aa35";
+  }
+  if (crowd < 72) {
+    return "#d88417";
+  }
+  if (crowd < 84) {
+    return "#c85f26";
+  }
+  return "#a43d67";
 }
 
 function getWaitMinutes(restaurant, crowd) {
@@ -1551,6 +1572,138 @@ function getAccessLabel(restaurant) {
     return `最寄り駅・皇居周辺から徒歩${restaurant.walk}分`;
   }
   return `東京駅から徒歩${restaurant.walk}分`;
+}
+
+function getAreaGeoBase(area) {
+  const bases = {
+    駅ナカ: { lat: 35.68125, lon: 139.7671 },
+    丸の内: { lat: 35.6819, lon: 139.7621 },
+    八重洲: { lat: 35.68105, lon: 139.77035 },
+    皇居周辺: { lat: 35.6832, lon: 139.7576 },
+    霞が関: { lat: 35.67295, lon: 139.75045 },
+  };
+  return bases[area] || bases["駅ナカ"];
+}
+
+function hashNumber(value) {
+  let hash = 0;
+  for (let index = 0; index < value.length; index += 1) {
+    hash = (hash * 31 + value.charCodeAt(index)) >>> 0;
+  }
+  return hash;
+}
+
+function getRestaurantGeo(restaurant) {
+  const base = getAreaGeoBase(restaurant.area);
+  const hash = hashNumber(`${restaurant.name}${restaurant.genre}`);
+  const angle = (hash % 360) * (Math.PI / 180);
+  const radius = 0.0006 + ((hash >>> 4) % 100) / 100000;
+  const areaSpread =
+    restaurant.area === "霞が関" ? 1.35 : restaurant.area === "皇居周辺" ? 1.9 : restaurant.area === "八重洲" ? 1.15 : 1;
+
+  return {
+    lat: base.lat + Math.sin(angle) * radius * areaSpread,
+    lon: base.lon + Math.cos(angle) * radius * areaSpread,
+  };
+}
+
+function projectMapPoint(lat, lon, zoom) {
+  const scale = 256 * 2 ** zoom;
+  const x = ((lon + 180) / 360) * scale;
+  const sinLat = Math.sin((lat * Math.PI) / 180);
+  const y = (0.5 - Math.log((1 + sinLat) / (1 - sinLat)) / (4 * Math.PI)) * scale;
+  return { x, y };
+}
+
+function getMapView(area) {
+  if (area === "霞が関") {
+    return { lat: 35.67295, lon: 139.75045, zoom: 15 };
+  }
+  if (area === "皇居周辺") {
+    return { lat: 35.6819, lon: 139.7578, zoom: 14 };
+  }
+  if (area === "丸の内") {
+    return { lat: 35.6819, lon: 139.7623, zoom: 15 };
+  }
+  if (area === "八重洲") {
+    return { lat: 35.6811, lon: 139.7705, zoom: 15 };
+  }
+  if (area === "駅ナカ") {
+    return { lat: 35.68125, lon: 139.7671, zoom: 15 };
+  }
+  return { lat: 35.6778, lon: 139.7618, zoom: 14 };
+}
+
+function renderMapTiles(view) {
+  if (!elements.realMap || !elements.mapTiles) {
+    return;
+  }
+
+  const width = elements.realMap.clientWidth || 390;
+  const height = elements.realMap.clientHeight || 330;
+  const center = projectMapPoint(view.lat, view.lon, view.zoom);
+  const startX = Math.floor((center.x - width / 2) / 256);
+  const endX = Math.floor((center.x + width / 2) / 256);
+  const startY = Math.floor((center.y - height / 2) / 256);
+  const endY = Math.floor((center.y + height / 2) / 256);
+  const fragment = document.createDocumentFragment();
+
+  elements.mapTiles.innerHTML = "";
+  for (let tileX = startX; tileX <= endX; tileX += 1) {
+    for (let tileY = startY; tileY <= endY; tileY += 1) {
+      const image = document.createElement("img");
+      image.alt = "";
+      image.loading = "lazy";
+      image.referrerPolicy = "no-referrer";
+      image.src = `https://tile.openstreetmap.org/${view.zoom}/${tileX}/${tileY}.png`;
+      image.style.left = `${tileX * 256 - center.x + width / 2}px`;
+      image.style.top = `${tileY * 256 - center.y + height / 2}px`;
+      fragment.append(image);
+    }
+  }
+  elements.mapTiles.append(fragment);
+}
+
+function renderCrowdMap(visibleRestaurants) {
+  if (!elements.realMap || !elements.mapPoints) {
+    return;
+  }
+
+  const view = getMapView(state.area);
+  const width = elements.realMap.clientWidth || 390;
+  const height = elements.realMap.clientHeight || 330;
+  const center = projectMapPoint(view.lat, view.lon, view.zoom);
+  const fragment = document.createDocumentFragment();
+  const pinLimit = 180;
+
+  renderMapTiles(view);
+  elements.mapPoints.innerHTML = "";
+
+  visibleRestaurants.slice(0, pinLimit).forEach((restaurant) => {
+    const geo = getRestaurantGeo(restaurant);
+    const point = projectMapPoint(geo.lat, geo.lon, view.zoom);
+    const left = point.x - center.x + width / 2;
+    const top = point.y - center.y + height / 2;
+
+    if (left < -24 || left > width + 24 || top < -24 || top > height + 24) {
+      return;
+    }
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "map-point";
+    button.style.left = `${left}px`;
+    button.style.top = `${top}px`;
+    button.style.setProperty("--pin-color", getMapStatusColor(restaurant.crowd));
+    button.setAttribute("aria-label", `${restaurant.name} ${restaurant.crowd}%`);
+    button.innerHTML = "<span></span>";
+    button.addEventListener("click", () => openDetail(restaurant));
+    fragment.append(button);
+  });
+
+  elements.mapPoints.append(fragment);
+  elements.mapCount.textContent =
+    visibleRestaurants.length > pinLimit ? `${pinLimit}+店` : `${visibleRestaurants.length}店`;
 }
 
 function openDetail(restaurant) {
@@ -1653,6 +1806,7 @@ function render() {
   elements.resultCount.textContent = `${visible.length}件`;
   elements.updatedAt.textContent = formatTime(new Date());
   updateMapPins();
+  renderCrowdMap(visible);
 }
 
 function updateMapPins() {
@@ -1713,6 +1867,10 @@ elements.refreshButton.addEventListener("click", () => {
   render();
 });
 
+elements.mapNavButton.addEventListener("click", () => {
+  elements.realMap.scrollIntoView({ behavior: "smooth", block: "center" });
+});
+
 document.querySelectorAll("[data-close-detail]").forEach((button) => {
   button.addEventListener("click", closeDetail);
 });
@@ -1733,3 +1891,4 @@ updateClock();
 render();
 setInterval(updateClock, 30000);
 setInterval(render, 180000);
+window.addEventListener("resize", render);

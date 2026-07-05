@@ -15,7 +15,7 @@
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="icon.svg" />
-    <link rel="stylesheet" href="styles.css?v=7" />
+    <link rel="stylesheet" href="styles.css?v=8" />
   </head>
   <body>
     <main class="app-shell">
@@ -103,6 +103,28 @@
         </label>
       </section>
 
+      <section class="real-map-section" aria-label="混雑マップ">
+        <div class="section-heading">
+          <h2>混雑マップ</h2>
+          <span id="mapCount">0店</span>
+        </div>
+        <div class="real-map" id="realMap">
+          <div class="map-tiles" id="mapTiles" aria-hidden="true"></div>
+          <div class="map-points" id="mapPoints"></div>
+          <a class="map-credit" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">
+            © OpenStreetMap
+          </a>
+          <div class="map-legend" aria-label="混雑度">
+            <strong>混雑度</strong>
+            <span><i class="level-free"></i>空いている</span>
+            <span><i class="level-soft"></i>やや空き</span>
+            <span><i class="level-normal"></i>普通</span>
+            <span><i class="level-busy"></i>混雑</span>
+            <span><i class="level-full"></i>混み混み</span>
+          </div>
+        </div>
+      </section>
+
       <section class="content">
         <div class="section-heading">
           <h2>いまの入りやすさ</h2>
@@ -113,7 +135,7 @@
 
       <nav class="bottom-nav" aria-label="アプリメニュー">
         <button class="active" type="button"><span aria-hidden="true">⌂</span>混雑</button>
-        <button type="button"><span aria-hidden="true">◇</span>地図</button>
+        <button id="mapNavButton" type="button"><span aria-hidden="true">◇</span>地図</button>
         <button type="button"><span aria-hidden="true">☆</span>保存</button>
       </nav>
     </main>
@@ -162,6 +184,6 @@
       </section>
     </div>
 
-    <script src="app.js?v=7"></script>
+    <script src="app.js?v=8"></script>
   </body>
 </html>

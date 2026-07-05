@@ -1,9 +1,9 @@
-const CACHE_NAME = "tokyo-table-flow-v7";
+const CACHE_NAME = "tokyo-table-flow-v8";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=7",
-  "./app.js?v=7",
+  "./styles.css?v=8",
+  "./app.js?v=8",
   "./manifest.webmanifest",
   "./icon.svg",
 ];
