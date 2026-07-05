@@ -1623,6 +1623,8 @@ const elements = {
   mapZoomIn: document.querySelector("#mapZoomIn"),
   mapZoomLabel: document.querySelector("#mapZoomLabel"),
   mapExpandButton: document.querySelector("#mapExpandButton"),
+  guideSection: document.querySelector("#guideSection"),
+  guideNavButton: document.querySelector("#guideNavButton"),
   detailModal: document.querySelector("#detailModal"),
   detailArea: document.querySelector("#detailArea"),
   detailTitle: document.querySelector("#detailTitle"),
@@ -2104,6 +2106,10 @@ elements.refreshButton.addEventListener("click", () => {
 
 elements.mapNavButton.addEventListener("click", () => {
   elements.realMap.scrollIntoView({ behavior: "smooth", block: "center" });
+});
+
+elements.guideNavButton.addEventListener("click", () => {
+  elements.guideSection.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 elements.mapZoomOut.addEventListener("click", () => {

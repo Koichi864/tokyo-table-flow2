@@ -708,6 +708,85 @@ h3 {
   text-align: center;
 }
 
+.guide-section {
+  padding: 0 14px 24px;
+}
+
+.guide-hero,
+.guide-steps article,
+.guide-tips {
+  border: 1px solid #eadde1;
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 248, 250, 0.96), rgba(255, 255, 255, 0.98)),
+    #fff;
+  box-shadow: 0 10px 26px rgba(68, 53, 59, 0.08);
+}
+
+.guide-hero {
+  padding: 18px;
+}
+
+.guide-hero h2 {
+  color: var(--plum);
+  font-size: 22px;
+}
+
+.guide-hero p {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.guide-steps {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.guide-steps article {
+  position: relative;
+  padding: 15px 15px 15px 58px;
+}
+
+.guide-steps span {
+  position: absolute;
+  left: 14px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff1f5;
+  color: var(--rose);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.guide-steps h3,
+.guide-tips h3 {
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.guide-steps p,
+.guide-tips p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.guide-tips {
+  margin-top: 12px;
+  padding: 16px;
+  background:
+    linear-gradient(135deg, rgba(255, 241, 245, 0.98), rgba(247, 248, 244, 0.98)),
+    #fff;
+}
+
 .detail-modal {
   position: fixed;
   inset: 0;

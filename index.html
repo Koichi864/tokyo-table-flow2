@@ -15,7 +15,7 @@
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="icon.svg" />
-    <link rel="stylesheet" href="styles.css?v=9" />
+    <link rel="stylesheet" href="styles.css?v=10" />
   </head>
   <body>
     <main class="app-shell">
@@ -104,6 +104,47 @@
         </label>
       </section>
 
+      <section class="guide-section" id="guideSection" aria-label="使い方ガイド">
+        <div class="guide-hero">
+          <p class="eyebrow">Quick Guide</p>
+          <h2>リコちゃんのための使い方</h2>
+          <p>迷ったら、空いてる・近い・気分に合う、の順で見るだけ。</p>
+        </div>
+
+        <div class="guide-steps">
+          <article>
+            <span>01</span>
+            <h3>まずはエリアを選ぶ</h3>
+            <p>丸の内、八重洲、日比谷・有楽町、霞が関など、今いる場所に近いボタンをタップ。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>食べたい気分でしぼる</h3>
+            <p>カフェ、和食、スイーツなどを選ぶと候補がすっきり。店名検索も使えます。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>混雑度を見る</h3>
+            <p>緑は入りやすい、オレンジは少し混み、赤系は待つかも。平均待ち時間も目安に。</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>地図で場所感をつかむ</h3>
+            <p>混雑マップの数字ピンは複数店舗のまとまり。押すか、＋で拡大すると細かく見られます。</p>
+          </article>
+          <article>
+            <span>05</span>
+            <h3>詳細から最終確認</h3>
+            <p>気になるお店の［詳細］で、お店のURLと地図を開いて、営業時間や正確な場所を確認。</p>
+          </article>
+        </div>
+
+        <div class="guide-tips">
+          <h3>おすすめの使い方</h3>
+          <p>待ち合わせ前は「カフェ」＋「空席がある店だけ」。ランチ難民になりそうな時は地図を拡大して、近い緑ピンからチェック。</p>
+        </div>
+      </section>
+
       <section class="real-map-section" aria-label="混雑マップ">
         <div class="section-heading">
           <h2>混雑マップ</h2>
@@ -143,7 +184,7 @@
       <nav class="bottom-nav" aria-label="アプリメニュー">
         <button class="active" type="button"><span aria-hidden="true">⌂</span>混雑</button>
         <button id="mapNavButton" type="button"><span aria-hidden="true">◇</span>地図</button>
-        <button type="button"><span aria-hidden="true">☆</span>保存</button>
+        <button id="guideNavButton" type="button"><span aria-hidden="true">☆</span>使い方</button>
       </nav>
     </main>
 
@@ -191,6 +232,6 @@
       </section>
     </div>
 
-    <script src="app.js?v=9"></script>
+    <script src="app.js?v=10"></script>
   </body>
 </html>
