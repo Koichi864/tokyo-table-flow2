@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#5f4b67" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="Table Flow" />
+    <meta name="apple-mobile-web-app-title" content="Nagaoka Flow" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta
-      name="description"
-      content="東京駅周辺・丸の内・八重洲・日比谷・有楽町・霞が関・永田町・赤坂の飲食店の混雑状況をスマホで見られるアプリです。"
-    />
-    <title>Tokyo Table Flow</title>
+    <meta name="description" content="新潟県長岡市の飲食店の混雑状況をスマホで見られるマップです。" />
+    <title>Nagaoka Table Flow</title>
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="icon.svg" />
@@ -22,13 +19,13 @@
       <section class="top-panel">
         <div class="status-bar">
           <span id="clock">--:--</span>
-          <span>東京駅・霞が関</span>
+          <span>新潟県長岡市</span>
         </div>
 
         <header class="app-header">
           <div>
-            <p class="eyebrow">Marunouchi / Yaesu / Kasumigaseki</p>
-            <h1>Tokyo Table Flow</h1>
+            <p class="eyebrow">Nagaoka / Otedori / Tonomachi</p>
+            <h1>Nagaoka Table Flow</h1>
           </div>
           <button class="icon-button" id="refreshButton" type="button" aria-label="混雑状況を更新">
             <span aria-hidden="true">↻</span>
@@ -50,23 +47,23 @@
           </article>
         </div>
 
-        <div class="station-map" aria-label="東京駅周辺の簡易マップ">
-          <div class="map-rail">JR 東京駅</div>
-          <button class="map-pin marunouchi active" type="button" data-area="丸の内" aria-label="丸の内で絞り込み">
-            <span>丸</span>
-          </button>
-          <button class="map-pin yaesu active" type="button" data-area="八重洲" aria-label="八重洲で絞り込み">
-            <span>八</span>
-          </button>
-          <button class="map-pin station active" type="button" data-area="駅ナカ" aria-label="駅ナカで絞り込み">
+        <div class="station-map" aria-label="長岡駅周辺の簡易マップ">
+          <div class="map-rail">JR 長岡駅</div>
+          <button class="map-pin marunouchi active" type="button" data-area="長岡駅周辺" aria-label="長岡駅周辺で絞り込み">
             <span>駅</span>
           </button>
-          <button class="map-pin kasumi active" type="button" data-area="霞が関" aria-label="霞が関で絞り込み">
-            <span>霞</span>
+          <button class="map-pin yaesu active" type="button" data-area="大手通り" aria-label="大手通りで絞り込み">
+            <span>大</span>
           </button>
-          <span class="map-label west">丸の内</span>
-          <span class="map-label east">八重洲</span>
-          <span class="map-label south">霞が関</span>
+          <button class="map-pin station active" type="button" data-area="殿町" aria-label="殿町で絞り込み">
+            <span>殿</span>
+          </button>
+          <button class="map-pin kasumi active" type="button" data-area="古正寺・千秋" aria-label="古正寺・千秋で絞り込み">
+            <span>千</span>
+          </button>
+          <span class="map-label west">大手通り</span>
+          <span class="map-label east">長岡駅</span>
+          <span class="map-label south">殿町</span>
         </div>
       </section>
 
@@ -78,13 +75,11 @@
 
         <div class="segmented" role="tablist" aria-label="エリア">
           <button class="active" type="button" data-filter="area" data-value="all">全て</button>
-          <button type="button" data-filter="area" data-value="丸の内">丸の内</button>
-          <button type="button" data-filter="area" data-value="八重洲">八重洲</button>
-          <button type="button" data-filter="area" data-value="駅ナカ">駅ナカ</button>
-          <button type="button" data-filter="area" data-value="日比谷・有楽町">日比谷・有楽町</button>
-          <button type="button" data-filter="area" data-value="皇居周辺">皇居周辺</button>
-          <button type="button" data-filter="area" data-value="霞が関">霞が関</button>
-          <button type="button" data-filter="area" data-value="永田町・赤坂">永田町・赤坂</button>
+          <button type="button" data-filter="area" data-value="長岡駅周辺">長岡駅周辺</button>
+          <button type="button" data-filter="area" data-value="大手通り">大手通り</button>
+          <button type="button" data-filter="area" data-value="殿町">殿町</button>
+          <button type="button" data-filter="area" data-value="古正寺・千秋">古正寺・千秋</button>
+          <button type="button" data-filter="area" data-value="宮内・川崎">宮内・川崎</button>
         </div>
 
         <div class="chips" aria-label="ジャンル">
@@ -105,56 +100,40 @@
         </label>
 
         <div class="quick-links" aria-label="ページ切り替え">
+          <a href="index.html">東京版</a>
           <a href="index_en.html">English</a>
           <a href="index_es.html">Español</a>
-          <a href="nagaoka.html">長岡マップ</a>
         </div>
       </section>
 
       <section class="guide-section" id="guideSection" aria-label="使い方ガイド">
         <div class="guide-hero">
-          <p class="eyebrow">Quick Guide</p>
-          <h2>都心で働く忙しいビジネスパーソンのための使い方</h2>
-          <p>迷ったら、空いてる・近い・気分に合う、の順で見るだけ。</p>
+          <p class="eyebrow">Nagaoka Guide</p>
+          <h2>長岡で迷わずお店を選ぶための使い方</h2>
+          <p>駅前で急ぐ時も、車で少し動ける時も、空きそうな候補から探せます。</p>
         </div>
-
         <div class="guide-steps">
           <article>
             <span>01</span>
-            <h3>まずはエリアを選ぶ</h3>
-            <p>丸の内、八重洲、日比谷・有楽町、霞が関、永田町・赤坂など、今いる場所に近いボタンをタップ。</p>
+            <h3>エリアを選ぶ</h3>
+            <p>長岡駅周辺、大手通り、殿町、古正寺・千秋など、今いる場所に近いボタンをタップ。</p>
           </article>
           <article>
             <span>02</span>
-            <h3>食べたい気分でしぼる</h3>
-            <p>カフェ、和食、スイーツなどを選ぶと候補がすっきり。店名検索も使えます。</p>
+            <h3>ジャンルでしぼる</h3>
+            <p>ラーメン、カフェ、居酒屋、スイーツなどを選ぶと候補をすぐ絞れます。</p>
           </article>
           <article>
             <span>03</span>
-            <h3>混雑度を見る</h3>
-            <p>緑は入りやすい、オレンジは少し混み、赤系は待つかも。平均待ち時間も目安に。</p>
+            <h3>地図を拡大する</h3>
+            <p>ピンが多い時は＋か「拡大」を押すと、まとまりがほどけて見やすくなります。</p>
           </article>
-          <article>
-            <span>04</span>
-            <h3>地図で場所感をつかむ</h3>
-            <p>混雑マップの数字ピンは複数店舗のまとまり。押すか、＋で拡大すると細かく見られます。</p>
-          </article>
-          <article>
-            <span>05</span>
-            <h3>詳細から最終確認</h3>
-            <p>気になるお店の［詳細］で、お店のURLと地図を開いて、営業時間や正確な場所を確認。</p>
-          </article>
-        </div>
-
-        <div class="guide-tips">
-          <h3>おすすめの使い方</h3>
-          <p>待ち合わせ前は「カフェ」＋「空席がある店だけ」。ランチ難民になりそうな時は地図を拡大して、近い緑ピンからチェック。</p>
         </div>
       </section>
 
       <section class="real-map-section" aria-label="混雑マップ">
         <div class="section-heading">
-          <h2>混雑マップ</h2>
+          <h2>長岡 混雑マップ</h2>
           <span id="mapCount">0店</span>
         </div>
         <div class="real-map" id="realMap">
@@ -166,9 +145,7 @@
           </div>
           <div class="map-tiles" id="mapTiles" aria-hidden="true"></div>
           <div class="map-points" id="mapPoints"></div>
-          <a class="map-credit" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">
-            © OpenStreetMap
-          </a>
+          <a class="map-credit" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap</a>
           <div class="map-legend" aria-label="混雑度">
             <strong>混雑度</strong>
             <span><i class="level-free"></i>空いている</span>
@@ -239,6 +216,6 @@
       </section>
     </div>
 
-    <script src="app.js?v=13"></script>
+    <script src="nagaoka.js?v=13"></script>
   </body>
 </html>

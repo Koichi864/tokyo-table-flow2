@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#5f4b67" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Table Flow" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta
+      name="description"
+      content="A smartphone app for estimated restaurant crowd levels around Tokyo Station, Marunouchi, Yaesu, Hibiya, Yurakucho, Kasumigaseki, Nagatacho and Akasaka."
+    />
+    <title>Tokyo Table Flow - English</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.svg" />
+    <link rel="stylesheet" href="styles.css?v=13" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="top-panel">
+        <div class="status-bar">
+          <span id="clock">--:--</span>
+          <span>Tokyo / Kasumigaseki</span>
+        </div>
+
+        <header class="app-header">
+          <div>
+            <p class="eyebrow">Marunouchi / Yaesu / Kasumigaseki</p>
+            <h1>Tokyo Table Flow</h1>
+          </div>
+          <button class="icon-button" id="refreshButton" type="button" aria-label="Refresh crowd status">
+            <span aria-hidden="true">↻</span>
+          </button>
+        </header>
+
+        <div class="summary-grid" aria-label="Crowd summary">
+          <article>
+            <span>Likely open</span>
+            <strong id="openCount">0 spots</strong>
+          </article>
+          <article>
+            <span>Avg. wait</span>
+            <strong id="avgWait">0 min</strong>
+          </article>
+          <article>
+            <span>Updated</span>
+            <strong id="updatedAt">--:--</strong>
+          </article>
+        </div>
+
+        <div class="station-map" aria-label="Simple map around Tokyo Station">
+          <div class="map-rail">JR Tokyo</div>
+          <button class="map-pin marunouchi active" type="button" data-area="丸の内" aria-label="Filter Marunouchi">
+            <span>M</span>
+          </button>
+          <button class="map-pin yaesu active" type="button" data-area="八重洲" aria-label="Filter Yaesu">
+            <span>Y</span>
+          </button>
+          <button class="map-pin station active" type="button" data-area="駅ナカ" aria-label="Filter station area">
+            <span>St</span>
+          </button>
+          <button class="map-pin kasumi active" type="button" data-area="霞が関" aria-label="Filter Kasumigaseki">
+            <span>K</span>
+          </button>
+          <span class="map-label west">Marunouchi</span>
+          <span class="map-label east">Yaesu</span>
+          <span class="map-label south">Kasumigaseki</span>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Search filters">
+        <div class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Search by restaurant, food, or mood" autocomplete="off" />
+        </div>
+
+        <div class="segmented" role="tablist" aria-label="Area">
+          <button class="active" type="button" data-filter="area" data-value="all">All</button>
+          <button type="button" data-filter="area" data-value="丸の内">Marunouchi</button>
+          <button type="button" data-filter="area" data-value="八重洲">Yaesu</button>
+          <button type="button" data-filter="area" data-value="駅ナカ">Station</button>
+          <button type="button" data-filter="area" data-value="日比谷・有楽町">Hibiya / Yurakucho</button>
+          <button type="button" data-filter="area" data-value="皇居周辺">Imperial Palace</button>
+          <button type="button" data-filter="area" data-value="霞が関">Kasumigaseki</button>
+          <button type="button" data-filter="area" data-value="永田町・赤坂">Nagatacho / Akasaka</button>
+        </div>
+
+        <div class="chips" aria-label="Category">
+          <button class="active" type="button" data-filter="genre" data-value="all">All</button>
+          <button type="button" data-filter="genre" data-value="和食">Japanese</button>
+          <button type="button" data-filter="genre" data-value="カフェ">Cafe</button>
+          <button type="button" data-filter="genre" data-value="洋食">Western</button>
+          <button type="button" data-filter="genre" data-value="中華">Chinese</button>
+          <button type="button" data-filter="genre" data-value="ラーメン">Ramen</button>
+          <button type="button" data-filter="genre" data-value="寿司">Sushi</button>
+          <button type="button" data-filter="genre" data-value="居酒屋">Izakaya</button>
+          <button type="button" data-filter="genre" data-value="スイーツ">Sweets</button>
+        </div>
+
+        <label class="toggle-row">
+          <span>Show likely available only</span>
+          <input id="availableOnly" type="checkbox" />
+        </label>
+
+        <div class="quick-links" aria-label="Page switcher">
+          <a href="index.html">日本語</a>
+          <a href="index_es.html">Español</a>
+          <a href="nagaoka.html">Nagaoka Map</a>
+        </div>
+      </section>
+
+      <section class="guide-section" id="guideSection" aria-label="Guide">
+        <div class="guide-hero">
+          <p class="eyebrow">Quick Guide</p>
+          <h2>How to use this app for busy city workers</h2>
+          <p>When in doubt, check what is open, close, and right for your mood.</p>
+        </div>
+
+        <div class="guide-steps">
+          <article>
+            <span>01</span>
+            <h3>Choose your area</h3>
+            <p>Tap the area closest to you, such as Marunouchi, Yaesu, Hibiya, Kasumigaseki, or Akasaka.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Filter by mood</h3>
+            <p>Pick cafe, Japanese, sweets, or search by restaurant name to narrow the list quickly.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Check crowd level</h3>
+            <p>Green is easier to enter, orange may be busy, and red may need a wait.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Use the map</h3>
+            <p>Numbered pins group nearby places. Tap a group or press plus to zoom in.</p>
+          </article>
+          <article>
+            <span>05</span>
+            <h3>Open details</h3>
+            <p>Use Details to open the store website or map and confirm hours and exact location.</p>
+          </article>
+        </div>
+
+        <div class="guide-tips">
+          <h3>Recommended flow</h3>
+          <p>Before meeting someone, use Cafe plus likely available only. For lunch, zoom into the map and start with nearby green pins.</p>
+        </div>
+      </section>
+
+      <section class="real-map-section" aria-label="Crowd map">
+        <div class="section-heading">
+          <h2>Crowd Map</h2>
+          <span id="mapCount">0 spots</span>
+        </div>
+        <div class="real-map" id="realMap">
+          <div class="map-tools" aria-label="Map controls">
+            <button id="mapZoomOut" type="button" aria-label="Zoom out">−</button>
+            <span id="mapZoomLabel">Standard</span>
+            <button id="mapZoomIn" type="button" aria-label="Zoom in">＋</button>
+            <button id="mapExpandButton" type="button" aria-label="Expand map">Expand</button>
+          </div>
+          <div class="map-tiles" id="mapTiles" aria-hidden="true"></div>
+          <div class="map-points" id="mapPoints"></div>
+          <a class="map-credit" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap</a>
+          <div class="map-legend" aria-label="Crowd level">
+            <strong>Crowd</strong>
+            <span><i class="level-free"></i>Open</span>
+            <span><i class="level-soft"></i>Light</span>
+            <span><i class="level-normal"></i>Normal</span>
+            <span><i class="level-busy"></i>Busy</span>
+            <span><i class="level-full"></i>Very busy</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="content">
+        <div class="section-heading">
+          <h2>Best options now</h2>
+          <span id="resultCount">0 spots</span>
+        </div>
+        <div id="restaurantList" class="restaurant-list"></div>
+      </section>
+
+      <nav class="bottom-nav" aria-label="App menu">
+        <button class="active" type="button"><span aria-hidden="true">⌂</span>Crowd</button>
+        <button id="mapNavButton" type="button"><span aria-hidden="true">◇</span>Map</button>
+        <button id="guideNavButton" type="button"><span aria-hidden="true">☆</span>Guide</button>
+      </nav>
+    </main>
+
+    <template id="restaurantTemplate">
+      <article class="restaurant-card">
+        <div class="card-main">
+          <div class="restaurant-visual" aria-hidden="true"></div>
+          <div class="restaurant-info">
+            <div class="card-title-row">
+              <h3></h3>
+              <span class="status-pill"></span>
+            </div>
+            <p class="meta"></p>
+            <div class="signal">
+              <div class="signal-bar"><span></span></div>
+              <strong></strong>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="walk"></span>
+          <span class="seat"></span>
+          <button type="button">Details</button>
+        </div>
+        <div class="forecast" aria-label="Crowd forecast"></div>
+      </article>
+    </template>
+
+    <div class="detail-modal" id="detailModal" aria-hidden="true">
+      <div class="detail-backdrop" data-close-detail></div>
+      <section class="detail-sheet" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+        <button class="detail-close" type="button" aria-label="Close details" data-close-detail>×</button>
+        <span class="detail-area" id="detailArea"></span>
+        <h2 id="detailTitle"></h2>
+        <p id="detailDescription"></p>
+        <div class="detail-stats">
+          <span id="detailWalk"></span>
+          <span id="detailSeat"></span>
+          <span id="detailCrowd"></span>
+        </div>
+        <div class="detail-actions">
+          <a id="detailWebsite" href="#" target="_blank" rel="noopener">Website</a>
+          <a id="detailMap" href="#" target="_blank" rel="noopener">Open map</a>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js?v=13"></script>
+  </body>
+</html>

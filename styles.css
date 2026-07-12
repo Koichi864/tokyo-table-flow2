@@ -310,6 +310,27 @@ h1 {
   accent-color: var(--green);
 }
 
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+  margin-top: 6px;
+}
+
+.quick-links a {
+  min-height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #eadde1;
+  border-radius: 999px;
+  background: #fff8fa;
+  color: var(--plum);
+  font-size: 12px;
+  font-weight: 900;
+  text-decoration: none;
+  text-align: center;
+}
+
 .content {
   padding: 0 14px 24px;
 }

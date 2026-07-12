@@ -1741,6 +1741,173 @@ const elements = {
   detailMap: document.querySelector("#detailMap"),
 };
 
+const locale = document.documentElement.lang === "es" ? "es" : document.documentElement.lang === "en" ? "en" : "ja";
+const i18n = {
+  ja: {
+    free: "空き",
+    soft: "少し混雑",
+    busy: "混雑",
+    full: "満席近い",
+    shop: "店",
+    pin: "ピン",
+    min: "分",
+    wait: "待ち",
+    seats: "空席目安",
+    seatDetail: "空席",
+    crowd: "混雑",
+    detailsClose: "詳細を閉じる",
+    cluster: "店まとまり。押すと拡大",
+    wide: "広域",
+    max: "最大",
+    noMatchPrefix: "",
+    noMatchSuffix: "に合う登録店がまだありません。<br>エリアやジャンルを広げるか、公式店舗検索・地図検索でも確認してください。",
+    detailIntro: "のお店です。",
+    detailMid: "目安。いまの混雑目安は",
+    detailEnd: "です。",
+    official: "公式",
+    stationTokyo: "東京駅から徒歩",
+    stationHibiya: "日比谷・有楽町駅周辺から徒歩",
+    stationKasumi: "霞が関駅から徒歩",
+    stationAkasaka: "永田町・赤坂周辺から徒歩",
+    stationPalace: "最寄り駅・皇居周辺から徒歩",
+    areas: {
+      all: "全て",
+      "駅ナカ": "駅ナカ",
+      "丸の内": "丸の内",
+      "八重洲": "八重洲",
+      "日比谷・有楽町": "日比谷・有楽町",
+      "皇居周辺": "皇居周辺",
+      "霞が関": "霞が関",
+      "永田町・赤坂": "永田町・赤坂",
+    },
+    genres: {
+      all: "全部",
+      和食: "和食",
+      カフェ: "カフェ",
+      洋食: "洋食",
+      中華: "中華",
+      ラーメン: "ラーメン",
+      寿司: "寿司",
+      居酒屋: "居酒屋",
+      スイーツ: "スイーツ",
+    },
+  },
+  en: {
+    free: "Open",
+    soft: "Moderate",
+    busy: "Busy",
+    full: "Very busy",
+    shop: "spots",
+    pin: "pins",
+    min: "min",
+    wait: "Wait",
+    seats: "Seats",
+    seatDetail: "Seats",
+    crowd: "Crowd",
+    detailsClose: "Close details",
+    cluster: "spots grouped. Tap to zoom",
+    wide: "Wide",
+    max: "Max",
+    noMatchPrefix: "No registered places match ",
+    noMatchSuffix: ".<br>Try a wider area, another category, or official map search.",
+    detailIntro: " is a good option for ",
+    detailMid: ". Estimated access: ",
+    detailEnd: ".",
+    official: "official",
+    stationTokyo: "about ",
+    stationHibiya: "about ",
+    stationKasumi: "about ",
+    stationAkasaka: "about ",
+    stationPalace: "about ",
+    areas: {
+      all: "All",
+      "駅ナカ": "Inside Station",
+      "丸の内": "Marunouchi",
+      "八重洲": "Yaesu",
+      "日比谷・有楽町": "Hibiya / Yurakucho",
+      "皇居周辺": "Imperial Palace",
+      "霞が関": "Kasumigaseki",
+      "永田町・赤坂": "Nagatacho / Akasaka",
+    },
+    genres: {
+      all: "All",
+      和食: "Japanese",
+      カフェ: "Cafe",
+      洋食: "Western",
+      中華: "Chinese",
+      ラーメン: "Ramen",
+      寿司: "Sushi",
+      居酒屋: "Izakaya",
+      スイーツ: "Sweets",
+    },
+  },
+  es: {
+    free: "Libre",
+    soft: "Medio",
+    busy: "Lleno",
+    full: "Muy lleno",
+    shop: "lugares",
+    pin: "pines",
+    min: "min",
+    wait: "Espera",
+    seats: "Asientos",
+    seatDetail: "Asientos",
+    crowd: "Ocupación",
+    detailsClose: "Cerrar detalles",
+    cluster: "lugares agrupados. Toca para ampliar",
+    wide: "Amplio",
+    max: "Máx.",
+    noMatchPrefix: "No hay lugares registrados para ",
+    noMatchSuffix: ".<br>Prueba otra zona, categoría o búsqueda oficial en el mapa.",
+    detailIntro: " es una opción para ",
+    detailMid: ". Acceso estimado: ",
+    detailEnd: ".",
+    official: "oficial",
+    stationTokyo: "aprox. ",
+    stationHibiya: "aprox. ",
+    stationKasumi: "aprox. ",
+    stationAkasaka: "aprox. ",
+    stationPalace: "aprox. ",
+    areas: {
+      all: "Todo",
+      "駅ナカ": "Dentro de la estación",
+      "丸の内": "Marunouchi",
+      "八重洲": "Yaesu",
+      "日比谷・有楽町": "Hibiya / Yurakucho",
+      "皇居周辺": "Palacio Imperial",
+      "霞が関": "Kasumigaseki",
+      "永田町・赤坂": "Nagatacho / Akasaka",
+    },
+    genres: {
+      all: "Todo",
+      和食: "Japonesa",
+      カフェ: "Café",
+      洋食: "Occidental",
+      中華: "China",
+      ラーメン: "Ramen",
+      寿司: "Sushi",
+      居酒屋: "Izakaya",
+      スイーツ: "Dulces",
+    },
+  },
+};
+
+function t(key) {
+  return i18n[locale][key] || i18n.ja[key] || key;
+}
+
+function areaLabel(area) {
+  return i18n[locale].areas[area] || area;
+}
+
+function genreLabel(genre) {
+  return i18n[locale].genres[genre] || genre;
+}
+
+function unit(value, key) {
+  return locale === "ja" ? `${value}${t(key)}` : `${value} ${t(key)}`;
+}
+
 function getCurrentCrowd(restaurant, offset = 0) {
   const now = new Date();
   const hour = (now.getHours() + offset + 24) % 24;
@@ -1764,15 +1931,15 @@ function getCurrentCrowd(restaurant, offset = 0) {
 
 function getStatus(crowd) {
   if (crowd < 45) {
-    return { label: "空き", color: "#188a5b", wait: 0 };
+    return { label: t("free"), color: "#188a5b", wait: 0 };
   }
   if (crowd < 68) {
-    return { label: "少し混雑", color: "#d88417", wait: 8 };
+    return { label: t("soft"), color: "#d88417", wait: 8 };
   }
   if (crowd < 84) {
-    return { label: "混雑", color: "#c85f26", wait: 18 };
+    return { label: t("busy"), color: "#c85f26", wait: 18 };
   }
-  return { label: "満席近い", color: "#c54435", wait: 30 };
+  return { label: t("full"), color: "#c54435", wait: 30 };
 }
 
 function getMapStatusColor(crowd) {
@@ -1820,7 +1987,7 @@ function matchesRestaurant(restaurant) {
 }
 
 function buildWebSearchUrl(restaurant) {
-  const query = `${restaurant.name} ${restaurant.area} 公式`;
+  const query = `${restaurant.name} ${restaurant.area} ${t("official")}`;
   return `https://www.google.com/search?q=${encodeURIComponent(query)}`;
 }
 
@@ -1830,19 +1997,50 @@ function buildMapUrl(restaurant) {
 }
 
 function getAccessLabel(restaurant) {
+  if (locale !== "ja") {
+    const suffixes =
+      locale === "es"
+        ? {
+            tokyo: "desde Tokyo Station",
+            hibiya: "desde Hibiya / Yurakucho",
+            kasumi: "desde Kasumigaseki",
+            palace: "desde la estación más cercana al Palacio Imperial",
+            akasaka: "desde Nagatacho / Akasaka",
+          }
+        : {
+            tokyo: "from Tokyo Station",
+            hibiya: "from Hibiya / Yurakucho",
+            kasumi: "from Kasumigaseki",
+            palace: "from the nearest palace-area station",
+            akasaka: "from Nagatacho / Akasaka",
+          };
+    if (restaurant.area === "永田町・赤坂") {
+      return `${t("stationAkasaka")}${restaurant.walk} ${t("min")} ${suffixes.akasaka}`;
+    }
+    if (restaurant.area === "日比谷・有楽町") {
+      return `${t("stationHibiya")}${restaurant.walk} ${t("min")} ${suffixes.hibiya}`;
+    }
+    if (restaurant.area === "霞が関") {
+      return `${t("stationKasumi")}${restaurant.walk} ${t("min")} ${suffixes.kasumi}`;
+    }
+    if (restaurant.area === "皇居周辺") {
+      return `${t("stationPalace")}${restaurant.walk} ${t("min")} ${suffixes.palace}`;
+    }
+    return `${t("stationTokyo")}${restaurant.walk} ${t("min")} ${suffixes.tokyo}`;
+  }
   if (restaurant.area === "永田町・赤坂") {
-    return `永田町・赤坂周辺から徒歩${restaurant.walk}分`;
+    return `${t("stationAkasaka")}${restaurant.walk}${t("min")}`;
   }
   if (restaurant.area === "日比谷・有楽町") {
-    return `日比谷・有楽町駅周辺から徒歩${restaurant.walk}分`;
+    return `${t("stationHibiya")}${restaurant.walk}${t("min")}`;
   }
   if (restaurant.area === "霞が関") {
-    return `霞が関駅から徒歩${restaurant.walk}分`;
+    return `${t("stationKasumi")}${restaurant.walk}${t("min")}`;
   }
   if (restaurant.area === "皇居周辺") {
-    return `最寄り駅・皇居周辺から徒歩${restaurant.walk}分`;
+    return `${t("stationPalace")}${restaurant.walk}${t("min")}`;
   }
-  return `東京駅から徒歩${restaurant.walk}分`;
+  return `${t("stationTokyo")}${restaurant.walk}${t("min")}`;
 }
 
 function getAreaGeoBase(area) {
@@ -1967,7 +2165,7 @@ function updateMapZoomLabel(view) {
     return;
   }
 
-  const label = view.zoom <= 13 ? "広域" : view.zoom >= 17 ? "最大" : `×${view.zoom - 13}`;
+  const label = view.zoom <= 13 ? t("wide") : view.zoom >= 17 ? t("max") : `×${view.zoom - 13}`;
   elements.mapZoomLabel.textContent = label;
 }
 
@@ -1995,7 +2193,7 @@ function createMapCluster(cluster) {
   button.style.top = `${cluster.top}px`;
   button.style.setProperty("--pin-color", getMapStatusColor(busiest.crowd));
   button.textContent = cluster.restaurants.length;
-  button.setAttribute("aria-label", `${cluster.restaurants.length}店まとまり。押すと拡大`);
+  button.setAttribute("aria-label", `${cluster.restaurants.length}${t("cluster")}`);
   button.addEventListener("click", () => {
     state.mapZoomOffset = Math.min(3, state.mapZoomOffset + 1);
     render();
@@ -2054,7 +2252,7 @@ function renderCrowdMap(visibleRestaurants) {
   });
 
   elements.mapPoints.append(fragment);
-  elements.mapCount.textContent = `${visibleRestaurants.length}店 / ${elements.mapPoints.children.length}ピン`;
+  elements.mapCount.textContent = `${unit(visibleRestaurants.length, "shop")} / ${unit(elements.mapPoints.children.length, "pin")}`;
 }
 
 function openDetail(restaurant) {
@@ -2062,14 +2260,15 @@ function openDetail(restaurant) {
   const wait = restaurant.wait ?? getWaitMinutes(restaurant, crowd);
   const status = getStatus(crowd);
 
-  elements.detailArea.textContent = `${restaurant.area}・${restaurant.genre}`;
+  elements.detailArea.textContent = `${areaLabel(restaurant.area)}・${genreLabel(restaurant.genre)}`;
   elements.detailTitle.textContent = restaurant.name;
   elements.detailDescription.textContent =
-    `${restaurant.purpose}のお店です。${getAccessLabel(restaurant)}目安。` +
-    `いまの混雑目安は${crowd}%で「${status.label}」です。`;
+    locale === "ja"
+      ? `${restaurant.purpose}${t("detailIntro")}${getAccessLabel(restaurant)}${t("detailMid")}${crowd}%で「${status.label}」${t("detailEnd")}`
+      : `${restaurant.name}${t("detailIntro")}${restaurant.purpose}${t("detailMid")}${getAccessLabel(restaurant)}. ${t("crowd")}: ${crowd}% (${status.label})`;
   elements.detailWalk.textContent = getAccessLabel(restaurant);
-  elements.detailSeat.textContent = wait === 0 ? `空席 ${restaurant.seats}席目安` : `待ち ${wait}分`;
-  elements.detailCrowd.textContent = `混雑 ${crowd}%`;
+  elements.detailSeat.textContent = wait === 0 ? `${t("seatDetail")} ${restaurant.seats}` : `${t("wait")} ${unit(wait, "min")}`;
+  elements.detailCrowd.textContent = `${t("crowd")} ${crowd}%`;
   elements.detailWebsite.href = restaurant.url || buildWebSearchUrl(restaurant);
   elements.detailMap.href = restaurant.mapUrl || buildMapUrl(restaurant);
   elements.detailModal.classList.add("open");
@@ -2117,11 +2316,10 @@ function render() {
   elements.list.innerHTML = "";
 
   if (visible.length === 0) {
-    const queryText = state.search ? `「${state.search}」` : "その条件";
+    const queryText = state.search ? `「${state.search}」` : locale === "ja" ? "その条件" : "this search";
     elements.list.innerHTML = `
       <div class="empty-state">
-        ${queryText}に合う登録店がまだありません。<br>
-        エリアやジャンルを広げるか、東京駅周辺の公式店舗検索・地図検索でも確認してください。
+        ${t("noMatchPrefix")}${queryText}${t("noMatchSuffix")}
       </div>
     `;
   }
@@ -2137,11 +2335,11 @@ function render() {
     node.querySelector("h3").textContent = restaurant.name;
     node.querySelector(".status-pill").textContent = status.label;
     node.querySelector(".status-pill").style.background = status.color;
-    node.querySelector(".meta").textContent = `${restaurant.area}・${restaurant.genre} / ${restaurant.purpose}`;
+    node.querySelector(".meta").textContent = `${areaLabel(restaurant.area)}・${genreLabel(restaurant.genre)} / ${restaurant.purpose}`;
     node.querySelector(".signal strong").textContent = `${crowd}%`;
     node.querySelector(".walk").textContent = getAccessLabel(restaurant);
     node.querySelector(".seat").textContent =
-      restaurant.wait === 0 ? `空席目安 ${restaurant.seats}席` : `待ち ${restaurant.wait}分`;
+      restaurant.wait === 0 ? `${t("seats")} ${restaurant.seats}` : `${t("wait")} ${unit(restaurant.wait, "min")}`;
     node.querySelector(".card-footer button").addEventListener("click", () => openDetail(restaurant));
     renderForecast(restaurant, node.querySelector(".forecast"));
     elements.list.append(node);
@@ -2152,9 +2350,9 @@ function render() {
     ? Math.round(visible.reduce((sum, restaurant) => sum + restaurant.wait, 0) / visible.length)
     : 0;
 
-  elements.openCount.textContent = `${openCount}店`;
-  elements.avgWait.textContent = `${avgWait}分`;
-  elements.resultCount.textContent = `${visible.length}件`;
+  elements.openCount.textContent = unit(openCount, "shop");
+  elements.avgWait.textContent = unit(avgWait, "min");
+  elements.resultCount.textContent = unit(visible.length, "shop");
   elements.updatedAt.textContent = formatTime(new Date());
   updateMapPins();
   renderCrowdMap(visible);
