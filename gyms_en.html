@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#5f4b67" />
+    <meta name="description" content="A crowd estimate map for gyms, running stations, and hotel fitness facilities around the Imperial Palace." />
+    <title>Imperial Palace Gym Flow - English</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css?v=14" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="top-panel">
+        <div class="status-bar"><span id="clock">--:--</span><span>Imperial Palace Gyms</span></div>
+        <header class="app-header">
+          <div><p class="eyebrow">Palace Run / Gym / Fitness</p><h1>Imperial Palace Gym Flow</h1></div>
+          <button class="icon-button" id="refreshButton" type="button" aria-label="Refresh gym crowd status"><span aria-hidden="true">↻</span></button>
+        </header>
+        <div class="summary-grid" aria-label="Gym summary">
+          <article><span>Easy now</span><strong id="openCount">0 spots</strong></article>
+          <article><span>Avg. crowd</span><strong id="avgWait">0%</strong></article>
+          <article><span>Updated</span><strong id="updatedAt">--:--</strong></article>
+        </div>
+        <div class="station-map" aria-label="Simple Imperial Palace area map">
+          <div class="map-rail">Imperial Palace</div>
+          <button class="map-pin marunouchi active" type="button" data-area="丸の内・大手町" aria-label="Filter Marunouchi and Otemachi"><span>M</span></button>
+          <button class="map-pin yaesu active" type="button" data-area="日比谷・有楽町" aria-label="Filter Hibiya and Yurakucho"><span>H</span></button>
+          <button class="map-pin station active" type="button" data-area="九段下・竹橋" aria-label="Filter Kudanshita and Takebashi"><span>T</span></button>
+          <button class="map-pin kasumi active" type="button" data-area="半蔵門・麹町" aria-label="Filter Hanzomon and Kojimachi"><span>K</span></button>
+          <span class="map-label west">Palace</span><span class="map-label east">Marunouchi</span><span class="map-label south">Hibiya</span>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Search filters">
+        <div class="search-box"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Search by gym, purpose, or type" autocomplete="off" /></div>
+        <div class="segmented" role="tablist" aria-label="Area">
+          <button class="active" type="button" data-filter="area" data-value="all">All</button>
+          <button type="button" data-filter="area" data-value="丸の内・大手町">Marunouchi / Otemachi</button>
+          <button type="button" data-filter="area" data-value="日比谷・有楽町">Hibiya / Yurakucho</button>
+          <button type="button" data-filter="area" data-value="半蔵門・麹町">Hanzomon / Kojimachi</button>
+          <button type="button" data-filter="area" data-value="九段下・竹橋">Kudanshita / Takebashi</button>
+          <button type="button" data-filter="area" data-value="永田町・赤坂">Nagatacho / Akasaka</button>
+          <button type="button" data-filter="area" data-value="銀座・日本橋">Ginza / Nihonbashi</button>
+        </div>
+        <div class="chips" aria-label="Type">
+          <button class="active" type="button" data-filter="type" data-value="all">All</button>
+          <button type="button" data-filter="type" data-value="ランステ">Run station</button>
+          <button type="button" data-filter="type" data-value="ジム">Gym</button>
+          <button type="button" data-filter="type" data-value="公共">Public</button>
+          <button type="button" data-filter="type" data-value="24時間">24h</button>
+          <button type="button" data-filter="type" data-value="パーソナル">Personal</button>
+          <button type="button" data-filter="type" data-value="ホテル">Hotel</button>
+        </div>
+        <label class="toggle-row"><span>Show easy places only</span><input id="availableOnly" type="checkbox" /></label>
+        <div class="quick-links" aria-label="Page switcher">
+          <a href="index_en.html">Food</a><a href="gyms.html">日本語</a><a href="gyms_es.html">Español</a><a href="nagaoka.html">Nagaoka</a>
+        </div>
+      </section>
+
+      <section class="guide-section" id="guideSection" aria-label="Guide">
+        <div class="guide-hero"><p class="eyebrow">Gym Guide</p><h2>How to find a gym around the Imperial Palace</h2><p>Quickly compare running stations, gyms, hotel fitness options, and personal training studios.</p></div>
+        <div class="guide-steps">
+          <article><span>01</span><h3>Pick an area</h3><p>Choose Marunouchi, Hibiya, Hanzomon, Takebashi, Akasaka, or nearby areas.</p></article>
+          <article><span>02</span><h3>Filter by type</h3><p>Use run station, 24h, hotel, public, or personal training depending on your plan.</p></article>
+          <article><span>03</span><h3>Confirm details</h3><p>Use the website or map link to confirm hours, visitor access, and fees.</p></article>
+        </div>
+      </section>
+
+      <section class="real-map-section" aria-label="Gym map">
+        <div class="section-heading"><h2>Imperial Palace Gym Map</h2><span id="mapCount">0 spots</span></div>
+        <div class="real-map" id="realMap">
+          <div class="map-tools" aria-label="Map controls"><button id="mapZoomOut" type="button" aria-label="Zoom out">−</button><span id="mapZoomLabel">Standard</span><button id="mapZoomIn" type="button" aria-label="Zoom in">＋</button><button id="mapExpandButton" type="button" aria-label="Expand map">Expand</button></div>
+          <div class="map-tiles" id="mapTiles" aria-hidden="true"></div><div class="map-points" id="mapPoints"></div>
+          <a class="map-credit" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap</a>
+          <div class="map-legend" aria-label="Crowd level"><strong>Crowd</strong><span><i class="level-free"></i>Easy</span><span><i class="level-soft"></i>Normal</span><span><i class="level-busy"></i>Busy</span><span><i class="level-full"></i>Very busy</span></div>
+        </div>
+      </section>
+
+      <section class="content"><div class="section-heading"><h2>Easy options now</h2><span id="resultCount">0 spots</span></div><div id="restaurantList" class="restaurant-list"></div></section>
+      <nav class="bottom-nav" aria-label="App menu"><button class="active" type="button"><span aria-hidden="true">⌂</span>Options</button><button id="mapNavButton" type="button"><span aria-hidden="true">◇</span>Map</button><button id="guideNavButton" type="button"><span aria-hidden="true">☆</span>Guide</button></nav>
+    </main>
+
+    <template id="restaurantTemplate">
+      <article class="restaurant-card"><div class="card-main"><div class="restaurant-visual" aria-hidden="true"></div><div class="restaurant-info"><div class="card-title-row"><h3></h3><span class="status-pill"></span></div><p class="meta"></p><div class="signal"><div class="signal-bar"><span></span></div><strong></strong></div></div></div><div class="card-footer"><span class="walk"></span><span class="seat"></span><button type="button">Details</button></div><div class="forecast" aria-label="Gym crowd forecast"></div></article>
+    </template>
+
+    <div class="detail-modal" id="detailModal" aria-hidden="true">
+      <div class="detail-backdrop" data-close-detail></div>
+      <section class="detail-sheet" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+        <button class="detail-close" type="button" aria-label="Close details" data-close-detail>×</button><span class="detail-area" id="detailArea"></span><h2 id="detailTitle"></h2><p id="detailDescription"></p><div class="detail-stats"><span id="detailWalk"></span><span id="detailSeat"></span><span id="detailCrowd"></span></div><div class="detail-actions"><a id="detailWebsite" href="#" target="_blank" rel="noopener">Website/Search</a><a id="detailMap" href="#" target="_blank" rel="noopener">Open map</a></div>
+      </section>
+    </div>
+    <script src="gyms.js?v=14"></script>
+  </body>
+</html>

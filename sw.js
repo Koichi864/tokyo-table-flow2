@@ -1,13 +1,17 @@
-const CACHE_NAME = "tokyo-table-flow-v13";
+const CACHE_NAME = "tokyo-table-flow-v14";
 const ASSETS = [
   "./",
   "./index.html",
   "./index_en.html",
   "./index_es.html",
   "./nagaoka.html",
-  "./styles.css?v=13",
+  "./gyms.html",
+  "./gyms_en.html",
+  "./gyms_es.html",
+  "./styles.css?v=14",
   "./app.js?v=13",
   "./nagaoka.js?v=13",
+  "./gyms.js?v=14",
   "./manifest.webmanifest",
   "./icon.svg",
 ];

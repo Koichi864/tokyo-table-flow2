@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#5f4b67" />
+    <meta name="description" content="皇居周辺のジム、ランニングステーション、ホテルフィットネスの混雑目安マップです。" />
+    <title>Imperial Palace Gym Flow</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css?v=14" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="top-panel">
+        <div class="status-bar">
+          <span id="clock">--:--</span>
+          <span>皇居周辺ジム</span>
+        </div>
+        <header class="app-header">
+          <div>
+            <p class="eyebrow">Palace Run / Gym / Fitness</p>
+            <h1>Imperial Palace Gym Flow</h1>
+          </div>
+          <button class="icon-button" id="refreshButton" type="button" aria-label="混雑状況を更新">
+            <span aria-hidden="true">↻</span>
+          </button>
+        </header>
+        <div class="summary-grid" aria-label="ジムサマリー">
+          <article><span>使いやすそう</span><strong id="openCount">0件</strong></article>
+          <article><span>平均混雑</span><strong id="avgWait">0%</strong></article>
+          <article><span>更新</span><strong id="updatedAt">--:--</strong></article>
+        </div>
+        <div class="station-map" aria-label="皇居周辺の簡易マップ">
+          <div class="map-rail">皇居外苑</div>
+          <button class="map-pin marunouchi active" type="button" data-area="丸の内・大手町" aria-label="丸の内・大手町で絞り込み"><span>丸</span></button>
+          <button class="map-pin yaesu active" type="button" data-area="日比谷・有楽町" aria-label="日比谷・有楽町で絞り込み"><span>日</span></button>
+          <button class="map-pin station active" type="button" data-area="九段下・竹橋" aria-label="九段下・竹橋で絞り込み"><span>竹</span></button>
+          <button class="map-pin kasumi active" type="button" data-area="半蔵門・麹町" aria-label="半蔵門・麹町で絞り込み"><span>半</span></button>
+          <span class="map-label west">皇居</span>
+          <span class="map-label east">丸の内</span>
+          <span class="map-label south">日比谷</span>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="検索条件">
+        <div class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="ジム名・目的・タイプで検索" autocomplete="off" />
+        </div>
+        <div class="segmented" role="tablist" aria-label="エリア">
+          <button class="active" type="button" data-filter="area" data-value="all">全て</button>
+          <button type="button" data-filter="area" data-value="丸の内・大手町">丸の内・大手町</button>
+          <button type="button" data-filter="area" data-value="日比谷・有楽町">日比谷・有楽町</button>
+          <button type="button" data-filter="area" data-value="半蔵門・麹町">半蔵門・麹町</button>
+          <button type="button" data-filter="area" data-value="九段下・竹橋">九段下・竹橋</button>
+          <button type="button" data-filter="area" data-value="永田町・赤坂">永田町・赤坂</button>
+          <button type="button" data-filter="area" data-value="銀座・日本橋">銀座・日本橋</button>
+        </div>
+        <div class="chips" aria-label="タイプ">
+          <button class="active" type="button" data-filter="type" data-value="all">全部</button>
+          <button type="button" data-filter="type" data-value="ランステ">ランステ</button>
+          <button type="button" data-filter="type" data-value="ジム">ジム</button>
+          <button type="button" data-filter="type" data-value="公共">公共</button>
+          <button type="button" data-filter="type" data-value="24時間">24時間</button>
+          <button type="button" data-filter="type" data-value="パーソナル">パーソナル</button>
+          <button type="button" data-filter="type" data-value="ホテル">ホテル</button>
+        </div>
+        <label class="toggle-row">
+          <span>空いていそうな施設だけ</span>
+          <input id="availableOnly" type="checkbox" />
+        </label>
+        <div class="quick-links" aria-label="ページ切り替え">
+          <a href="index.html">飲食店</a>
+          <a href="gyms_en.html">English</a>
+          <a href="gyms_es.html">Español</a>
+          <a href="nagaoka.html">長岡</a>
+        </div>
+      </section>
+
+      <section class="guide-section" id="guideSection" aria-label="使い方ガイド">
+        <div class="guide-hero">
+          <p class="eyebrow">Gym Guide</p>
+          <h2>皇居周辺で運動したい人のための使い方</h2>
+          <p>ランニング前後、仕事帰り、短時間トレーニングに使いやすい場所をすぐ探せます。</p>
+        </div>
+        <div class="guide-steps">
+          <article><span>01</span><h3>場所を選ぶ</h3><p>丸の内・日比谷・半蔵門・竹橋など、今いる場所に近いエリアをタップ。</p></article>
+          <article><span>02</span><h3>タイプでしぼる</h3><p>ランステ、24時間、ホテル、パーソナルなど目的に合わせて選べます。</p></article>
+          <article><span>03</span><h3>詳細で確認</h3><p>料金、営業時間、ビジター利用可否は公式ページや地図から最終確認してください。</p></article>
+        </div>
+      </section>
+
+      <section class="real-map-section" aria-label="ジムマップ">
+        <div class="section-heading"><h2>皇居周辺ジムマップ</h2><span id="mapCount">0件</span></div>
+        <div class="real-map" id="realMap">
+          <div class="map-tools" aria-label="地図操作">
+            <button id="mapZoomOut" type="button" aria-label="地図を縮小">−</button>
+            <span id="mapZoomLabel">標準</span>
+            <button id="mapZoomIn" type="button" aria-label="地図を拡大">＋</button>
+            <button id="mapExpandButton" type="button" aria-label="地図を大きく表示">拡大</button>
+          </div>
+          <div class="map-tiles" id="mapTiles" aria-hidden="true"></div>
+          <div class="map-points" id="mapPoints"></div>
+          <a class="map-credit" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap</a>
+          <div class="map-legend" aria-label="混雑度">
+            <strong>混雑度</strong>
+            <span><i class="level-free"></i>使いやすい</span>
+            <span><i class="level-soft"></i>普通</span>
+            <span><i class="level-busy"></i>混雑</span>
+            <span><i class="level-full"></i>かなり混雑</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="content">
+        <div class="section-heading"><h2>いま使いやすい候補</h2><span id="resultCount">0件</span></div>
+        <div id="restaurantList" class="restaurant-list"></div>
+      </section>
+
+      <nav class="bottom-nav" aria-label="アプリメニュー">
+        <button class="active" type="button"><span aria-hidden="true">⌂</span>候補</button>
+        <button id="mapNavButton" type="button"><span aria-hidden="true">◇</span>地図</button>
+        <button id="guideNavButton" type="button"><span aria-hidden="true">☆</span>使い方</button>
+      </nav>
+    </main>
+
+    <template id="restaurantTemplate">
+      <article class="restaurant-card">
+        <div class="card-main">
+          <div class="restaurant-visual" aria-hidden="true"></div>
+          <div class="restaurant-info">
+            <div class="card-title-row"><h3></h3><span class="status-pill"></span></div>
+            <p class="meta"></p>
+            <div class="signal"><div class="signal-bar"><span></span></div><strong></strong></div>
+          </div>
+        </div>
+        <div class="card-footer"><span class="walk"></span><span class="seat"></span><button type="button">詳細</button></div>
+        <div class="forecast" aria-label="この先の混雑予測"></div>
+      </article>
+    </template>
+
+    <div class="detail-modal" id="detailModal" aria-hidden="true">
+      <div class="detail-backdrop" data-close-detail></div>
+      <section class="detail-sheet" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+        <button class="detail-close" type="button" aria-label="詳細を閉じる" data-close-detail>×</button>
+        <span class="detail-area" id="detailArea"></span>
+        <h2 id="detailTitle"></h2>
+        <p id="detailDescription"></p>
+        <div class="detail-stats"><span id="detailWalk"></span><span id="detailSeat"></span><span id="detailCrowd"></span></div>
+        <div class="detail-actions"><a id="detailWebsite" href="#" target="_blank" rel="noopener">公式/検索</a><a id="detailMap" href="#" target="_blank" rel="noopener">地図で見る</a></div>
+      </section>
+    </div>
+
+    <script src="gyms.js?v=14"></script>
+  </body>
+</html>
